@@ -78,3 +78,19 @@ README〜ER図作成：07/16 〆切
 https://www.figma.com/file/nb2HTfN6mYQ9h3xUFlQayB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=YRlf4E5iQV4eIPDB-1
 
 [![Image from Gyazo](https://i.gyazo.com/41a4738130ffac57a28ed8772c572f91.png)](https://gyazo.com/41a4738130ffac57a28ed8772c572f91)
+
+---
+## ER図
+https://drive.google.com/file/d/1Xvk63R1wjcOWkJg6fzSLOHmgwmkRANpK/view?usp=sharing
+
+[![Image from Gyazo](https://i.gyazo.com/390957ca8647a6b68a43e081b8f7073c.png)](https://gyazo.com/390957ca8647a6b68a43e081b8f7073c)
+
+### 概説
+- Users（Google認証を使用のため、以下を追加する）
+  - provider：サービスのプロバイダー名
+  - uid
+- StampRallies
+  - image：サムネイル
+  - range：公開範囲指定（のちに下書きも追加予定）
+- Stamps
+  - place：場所の名前（例：店名）
