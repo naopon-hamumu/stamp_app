@@ -71,3 +71,9 @@ README〜ER図作成：07/16 〆切
 - Google Maps Geocording API
 - Google Places API
 - GCP Recommendations AI（MVP後）
+
+---
+## 画面遷移図
+https://www.figma.com/file/nb2HTfN6mYQ9h3xUFlQayB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=YRlf4E5iQV4eIPDB-1
+
+[![Image from Gyazo](https://i.gyazo.com/41a4738130ffac57a28ed8772c572f91.png)](https://gyazo.com/41a4738130ffac57a28ed8772c572f91)
