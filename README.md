@@ -83,7 +83,7 @@ https://www.figma.com/file/nb2HTfN6mYQ9h3xUFlQayB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 ## ER図
 https://drive.google.com/file/d/1Xvk63R1wjcOWkJg6fzSLOHmgwmkRANpK/view?usp=sharing
 
-[![Image from Gyazo](https://i.gyazo.com/a2d12e54bf1bd4fc31bad48e042339a6.png)](https://gyazo.com/a2d12e54bf1bd4fc31bad48e042339a6)
+[![Image from Gyazo](https://i.gyazo.com/6d8464c4cd62fe1b9cd24cf1adc40586.png)](https://gyazo.com/6d8464c4cd62fe1b9cd24cf1adc40586)
 
 ### 概説
 - Autenticates
