@@ -83,15 +83,16 @@ https://www.figma.com/file/nb2HTfN6mYQ9h3xUFlQayB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 ## ER図
 https://drive.google.com/file/d/1Xvk63R1wjcOWkJg6fzSLOHmgwmkRANpK/view?usp=sharing
 
-[![Image from Gyazo](https://i.gyazo.com/bd3ae0dd5a599598473bef6d99d29f91.png)](https://gyazo.com/bd3ae0dd5a599598473bef6d99d29f91)
+[![Image from Gyazo](https://i.gyazo.com/a2d12e54bf1bd4fc31bad48e042339a6.png)](https://gyazo.com/a2d12e54bf1bd4fc31bad48e042339a6)
 
 ### 概説
-- Users（Google認証を使用のため、以下を追加する）
+- Autenticates
   - provider：サービスのプロバイダー名
   - uid
 - StampRallies
   - image：サムネイル
   - area：公開範囲指定（のちに下書きも追加予定）
+    全体に作成したスタンプラリーを公開するか否か
 - Stamps
   - name：場所の名前（例：店名）
   - sticker：スタンプラリーでゲットできるスタンプの画像
