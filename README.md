@@ -83,7 +83,7 @@ https://www.figma.com/file/nb2HTfN6mYQ9h3xUFlQayB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 ## ER図
 https://drive.google.com/file/d/1Xvk63R1wjcOWkJg6fzSLOHmgwmkRANpK/view?usp=sharing
 
-[![Image from Gyazo](https://i.gyazo.com/6d8464c4cd62fe1b9cd24cf1adc40586.png)](https://gyazo.com/6d8464c4cd62fe1b9cd24cf1adc40586)
+[![Image from Gyazo](https://i.gyazo.com/4eb478485288afdb6666f93d30defd9c.png)](https://gyazo.com/4eb478485288afdb6666f93d30defd9c)
 
 ### 概説
 - Autenticates
@@ -96,7 +96,7 @@ https://drive.google.com/file/d/1Xvk63R1wjcOWkJg6fzSLOHmgwmkRANpK/view?usp=shari
 - Stamps
   - name：場所の名前（例：店名）
   - sticker：スタンプラリーでゲットできるスタンプの画像
-- PaticipantStampRelations
+- PaticipantsStamps
   participant（スタンプラリーの参加者）がスタンプ設置場所に出向いた際にスタンプを格納します。
   - participant_id：participantsテーブルのidを格納
   - stamp_id：スタンプラリーの設置場所により、スタンプの種類（stampsテーブルのstickerカラム）が異なる可能性があるため、stampテーブルから外部キーで参照しております。
