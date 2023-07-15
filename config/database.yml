@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: root
+  password: <%= ENV['POSTGRES_PASSWORD'] || '' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: stamp_app_development
+
+test:
+  <<: *default
+  database: stamp_app_test
+
+production:
+  <<: *default
+  database: stamp_app_production
+  username: stamp_app
+  password: <%= ENV["STAMP_APP_DATABASE_PASSWORD"] %>
