@@ -18,4 +18,3 @@ services:
     environment:
       - POSTGRES_HOST=db
       - POSTGRES_PASSWORD=password
-

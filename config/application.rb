@@ -18,5 +18,9 @@ module StampApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dirroot.[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
+  end
   end
 end
