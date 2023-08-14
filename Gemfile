@@ -7,7 +7,8 @@ ruby "3.1.4"
 gem "rails", "~> 7.0.6"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails", "~> 3.4"
+# gem "sprockets-rails", "~> 3.4"
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -42,10 +43,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", "1.12", require: false
-gem "bootstrap-sass", "3.4"
 
 # Use Sass to process CSS
-gem "sassc-rails", "~> 2.1"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -79,3 +79,8 @@ group :test do
 end
 
 gem 'rails-i18n', '~> 7.0'
+
+# Bootstrap
+gem 'bootstrap', '~> 5.3'
+gem 'jquery-rails'
+gem 'popper_js', '~> 2.11.8'

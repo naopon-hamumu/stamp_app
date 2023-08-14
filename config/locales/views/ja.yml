@@ -1,0 +1,8 @@
+ja:
+  defaults:
+    register: '登録'
+    login: 'ログイン'
+    logout: 'ログアウト'
+  static_pages:
+    sitepolicy: '利用規約'
+    privacypolicy: 'プライバシーポリシー'

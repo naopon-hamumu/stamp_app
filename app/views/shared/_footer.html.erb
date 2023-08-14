@@ -1,0 +1,9 @@
+<footer class="footer fixed-bottom">
+  <%= debug(params) if Rails.env.development? %>
+  <nav>
+    <ul>
+      <li><%= link_to t('static_pages.sitepolicy'), sitepolicy_path %></li>
+      <li><%= link_to t('static_pages.privacypolicy'), privacypolicy_path %></li>
+    </ul>
+  </nav>
+</footer>
