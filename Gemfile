@@ -84,3 +84,8 @@ gem 'rails-i18n', '~> 7.0'
 gem 'bootstrap', '~> 5.3'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.11.8'
+
+# omniauth
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
+gem "dotenv-rails"
