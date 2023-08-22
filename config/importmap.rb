@@ -7,3 +7,6 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.6/dist/esm/index.js", preload: true
 pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin "google-maps", to: "https://ga.jspm.io/npm:google-maps@4.3.3/lib/cjs/index.js"
+pin "@googlemaps/js-api-loader", to: "https://ga.jspm.io/npm:@googlemaps/js-api-loader@1.16.2/dist/index.esm.js", preload: true
+pin "map"

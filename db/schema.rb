@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_16_035924) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_22_103358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "sns_credentials", force: :cascade do |t|
-    t.string "provider"
+    t.string "provider", null: false
     t.string "uid"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
+  create_table "stamp_rallies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.string "image"
+    t.integer "visibility", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stamp_rallies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_035924) do
   end
 
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "stamp_rallies", "users"
 end

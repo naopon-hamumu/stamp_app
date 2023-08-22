@@ -89,3 +89,11 @@ gem 'popper_js', '~> 2.11.8'
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 gem "dotenv-rails"
+
+# image_upload
+gem 'carrierwave'
+gem 'mini_magick'
+
+# Google Map
+gem 'gmaps4rails'
+gem 'geocoder'
