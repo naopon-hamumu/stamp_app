@@ -6,12 +6,12 @@ class StampRalliesController < ApplicationController
 
   def new
     @stamp_rally = StampRally.new
+    @stamp_rally.stamps.build
   end
 
   def create
     @stamp_rally = current_user.stamp_rallies.build(stamp_rally_params)
     if @stamp_rally.save
-      flash[:success] = "成功！"
       redirect_to @stamp_rally
     else
       render 'new', status: :unprocessable_entity
@@ -20,6 +20,7 @@ class StampRalliesController < ApplicationController
 
   def show
     @stamp_rally = StampRally.find(params[:id])
+    @stickers = @stamp_rally.stamps.order(created_at: :asc)
   end
 
   def edit; end
@@ -44,6 +45,7 @@ class StampRalliesController < ApplicationController
   end
 
   def stamp_rally_params
-    params.require(:stamp_rally).permit(:title, :description, :image, :visibility)
+    params.require(:stamp_rally).permit(:title, :description, :image, :visibility,
+      stamps_attributes: [:name, :sticker, :address, :latitude, :longitude])
   end
 end

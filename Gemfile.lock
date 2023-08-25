@@ -97,6 +97,7 @@ GEM
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
     childprocess (4.1.0)
+    cocoon (1.2.15)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -185,6 +186,7 @@ GEM
     msgpack (1.7.2)
     multi_xml (0.6.0)
     nenv (0.3.0)
+    nested_form (0.3.2)
     net-imap (0.3.6)
       date
       net-protocol
@@ -353,6 +355,7 @@ DEPENDENCIES
   bootstrap (~> 5.3)
   capybara (= 3.37.1)
   carrierwave
+  cocoon
   debug
   devise
   dotenv-rails
@@ -360,12 +363,14 @@ DEPENDENCIES
   gmaps4rails
   guard (= 2.18.0)
   guard-minitest (= 2.4.6)
+  image_processing
   importmap-rails
   jbuilder (~> 2.11)
   jquery-rails
   mini_magick
   minitest (= 5.15.0)
   minitest-reporters (= 1.5.0)
+  nested_form
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pg (~> 1.1)

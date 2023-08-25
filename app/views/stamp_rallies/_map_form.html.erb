@@ -1,0 +1,7 @@
+<%= f.fields_for :stamps do |s| %>
+  <%= s.label :name %>
+  <%= s.text_field :name %>
+  <%= s.label :sticker %>
+  <%= s.file_field :sticker %>
+  <%= s.text_field :address %>
+<% end %>

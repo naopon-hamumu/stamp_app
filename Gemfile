@@ -93,7 +93,10 @@ gem "dotenv-rails"
 # image_upload
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'image_processing'
 
 # Google Map
 gem 'gmaps4rails'
 gem 'geocoder'
+
+gem 'cocoon'
