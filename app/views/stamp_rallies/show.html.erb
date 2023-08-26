@@ -1,4 +1,35 @@
 <h1>StampRallies#show</h1>
+<div data-turbolinks="false">
 
 <%= @stamp_rally.title %><br>
 <%= @stamp_rally.description %>
+
+<% @stamp_rally.stamps.each do |stamp| %>
+  <div id="map" style="height: 300px; width: 300px;"></div>
+  <style>
+     #map {
+     height: 500px;
+     width: 70%;
+    }
+  </style>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap" async defer></script></div>
+  <script>
+    let map;
+    let geocoder;
+    let address;
+    function initMap(){
+      const position = { lat: <%= stamp.latitude %>, lng: <%= stamp.longitude %> }
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: position,
+      zoom: 15
+      });
+
+      let marker = new google.maps.Marker({
+        position: position,
+        map: map
+      })
+    }
+  </script>
+<% end %>
+</div>
