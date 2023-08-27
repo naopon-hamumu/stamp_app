@@ -4,9 +4,9 @@ class CreateStamps < ActiveRecord::Migration[7.0]
       t.references :stamp_rally, null: false, foreign_key: true
       t.string :name, null: false
       t.string :sticker, null: false
-      t.string :address
       t.float :latitude, null: false
       t.float :longitude, null: false
+      t.string :address, null: false
 
       t.timestamps
     end

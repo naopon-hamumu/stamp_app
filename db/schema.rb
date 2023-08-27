@@ -66,9 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_084246) do
     t.bigint "stamp_rally_id", null: false
     t.string "name", null: false
     t.string "sticker", null: false
-    t.string "address"
     t.float "latitude", null: false
     t.float "longitude", null: false
+    t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["stamp_rally_id"], name: "index_stamps_on_stamp_rally_id"
