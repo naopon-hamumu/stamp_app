@@ -1,12 +1,13 @@
 class StampRalliesController < ApplicationController
   before_action :set_stamp_rally, only: %i[edit update destroy]
+
   def index
     @stamp_rallies = StampRally.all
   end
 
   def new
     @stamp_rally = StampRally.new
-    @stamp_rally.stamps.build
+    @stamps = @stamp_rally.stamps.build
   end
 
   def create
@@ -20,7 +21,7 @@ class StampRalliesController < ApplicationController
 
   def show
     @stamp_rally = StampRally.find(params[:id])
-    @stickers = @stamp_rally.stamps.order(created_at: :asc)
+    @stamps = @stamp_rally.stamps
   end
 
   def edit; end
@@ -46,6 +47,6 @@ class StampRalliesController < ApplicationController
 
   def stamp_rally_params
     params.require(:stamp_rally).permit(:title, :description, :image, :visibility,
-      stamps_attributes: [:name, :sticker, :address, :latitude, :longitude])
+      stamps_attributes: [:name, :sticker, :latitude, :longitude, :address])
   end
 end
