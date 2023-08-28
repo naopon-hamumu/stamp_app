@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "signup", to: "users/registrations#new"
     get "login", to: "users/sessions#new"
-    # get "logout", to: "users/sessions#destroy"
   end
 
-  resources :stamp_rallies
+  resources :stamp_rallies do
+    resource :participation, only: %i[create destroy], module: :stamp_rallies
+  end
 end
