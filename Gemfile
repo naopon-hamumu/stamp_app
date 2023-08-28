@@ -100,3 +100,9 @@ gem 'gmaps4rails'
 gem 'geocoder'
 
 gem 'cocoon'
+
+# enum
+gem 'enum_help'
+
+# search
+gem 'ransack'

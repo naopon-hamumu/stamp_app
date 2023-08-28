@@ -1,2 +1,13 @@
 <h1>StampRallies#index</h1>
-<p>Find me in app/views/stamp_rallies/index.html.erb</p>
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <%= render 'shared/search_form' %>
+      <% if @stamp_rallies.present? %>
+        <%= render @stamp_rallies %>
+      <% else %>
+        <p>ありませぬ</p>
+      <% end %>
+    </div>
+  </div>
+</div>

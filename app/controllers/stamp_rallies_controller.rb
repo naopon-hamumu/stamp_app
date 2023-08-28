@@ -1,8 +1,10 @@
 class StampRalliesController < ApplicationController
   before_action :set_stamp_rally, only: %i[edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @stamp_rallies = StampRally.all
+    @q = StampRally.public_open.ransack(params[:q])
+    @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user).order(created_at: :desc)
   end
 
   def new
@@ -36,7 +38,7 @@ class StampRalliesController < ApplicationController
 
   def destroy
     @stamp_rally.destroy!
-    redirect_to stamp_rallies_path
+    redirect_to top_path
   end
 
   private

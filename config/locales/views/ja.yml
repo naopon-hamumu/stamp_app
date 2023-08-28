@@ -1,4 +1,4 @@
-ja:
+ja: 
   defaults:
     register: '登録'
     login: 'ログイン'

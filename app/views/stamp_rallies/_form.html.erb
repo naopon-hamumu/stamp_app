@@ -14,6 +14,7 @@
   </div>
   <div class="form-group">
     <%= f.label :visibility %>
+    <%= f.select :visibility, StampRally.visibilities_i18n.invert %>
   </div>
   <%= render 'map_form', f: f %>
   <div class="actions">

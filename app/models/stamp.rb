@@ -4,4 +4,7 @@ class Stamp < ApplicationRecord
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
+
+  validates :name, length: { maximum: 25 }, presence: true
+  validates :sticker, presence: true
 end

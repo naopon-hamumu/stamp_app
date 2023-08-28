@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      stamp_rally: 'スタンプラリー'
+      stamps: 'スタンプ'
     attributes:
       user:
         name: 'ユーザー名'
@@ -9,3 +11,17 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         remember_me: 'ログイン状態を保持する'
+      stamp_rally:
+        title: 'タイトル'
+        description: '説明'
+        image: 'イメージ画像'
+        visibility: '公開範囲設定'
+      stamp:
+        name: 'スタンプの名前'
+        sticker: 'スタンプの画像'
+  enums:
+    stamp_rally:
+      visibility:
+        public_open: '全体公開'
+        private_open: '一部に公開'
+        unopen: '非公開'

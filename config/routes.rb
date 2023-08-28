@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "static_pages#top"
+  root "stamp_rallies#index"
+  get "top", to: "static_pages#top"
   get "sitepolicy", to: "static_pages#sitepolicy"
   get "privacypolicy", to: "static_pages#privacypolicy"
 
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :stamp_rallies do
+    collection do
+      get 'search'
+    end
     resource :participation, only: %i[create destroy], module: :stamp_rallies
   end
 end
