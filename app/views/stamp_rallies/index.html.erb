@@ -1,13 +1,18 @@
-<h1>StampRallies#index</h1>
-<div class="row">
-  <div class="col-12">
-    <div class="row">
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
       <%= render 'shared/search_form' %>
-      <% if @stamp_rallies.present? %>
-        <%= render @stamp_rallies %>
-      <% else %>
-        <p>ありませぬ</p>
-      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @stamp_rallies.present? %>
+          <%= render @stamp_rallies %>
+        <% else %>
+          <p>ありませぬ</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

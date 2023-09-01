@@ -1,9 +1,6 @@
-<footer class="footer fixed-bottom">
-  <%= debug(params) if Rails.env.development? %>
-  <nav>
-    <ul>
-      <li><%= link_to t('static_pages.sitepolicy'), sitepolicy_path %></li>
-      <li><%= link_to t('static_pages.privacypolicy'), privacypolicy_path %></li>
-    </ul>
-  </nav>
+<footer class="d-flex flex-wrap justify-content-between align-items-center pt-3 mt-4 border-top">
+  <div class="col-md-4 d-flex align-items-center">
+    <span class="mb-3 ms-3 text-muted">© 2023 🐹 Hams Company, Inc</span>
+  </div>
 </footer>
+  <%= debug(params) if Rails.env.development? %>

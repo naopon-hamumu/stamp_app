@@ -1,11 +1,22 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div>
-    <div class="card">
-      <%# <%= image_tag stamp_rally.image.url, class: 'card-img-top', size: '300x200' %>
+    <div class="card" style="width: 20rem;">
+      <%= image_tag stamp_rally.image.url, class: 'card-img-top', size: '300x200' %>
       <div class="card-body">
         <h4 class="card-title">
           <%= link_to stamp_rally.title, stamp_rally_path(stamp_rally) %>
         </h4>
+        <% if current_user %>
+          <%# <%= render 'crud_menus', board: board %> 
+        <% end %>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= stamp_rally.user.name %>
+          </li>
+            <li class="list-inline-item">
+            <%= l stamp_rally.updated_at, format: :long %></li>
+          </ul>
+          <p class="card-text"><%= stamp_rally.description %></p>
         </div>
       </div>
     </div>

@@ -1,5 +1,58 @@
-<h1>StampRallies#show</h1>
 <div data-turbolinks="false">
+<div class="container mt-5">
+  <div class="row pt-3 mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%=  %></h1>
+      <article class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag @stamp_rally.image.url, class: "card-img-top img-fluid", size: '300x200' %>
+            </div>
+            <div class="col-md-9">
+              <h3 style="display: inline;"><%= @stamp_rally.title %></h3>
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= @stamp_rally.user.name %></li>
+                <li class="list-inline-item"><%= l @stamp_rally.updated_at, format: :long %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@stamp_rally.description) %></p>
+        </div>
+        <% @stamp_rally.stamps.each do |stamp| %>
+  <div id="map" style="height: 300px; width: 300px;"></div>
+  <style>
+     #map {
+     height: 500px;
+     width: 70%;
+    }
+  </style>
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap" async defer></script></div>
+  <script>
+    let map;
+    let geocoder;
+    let address;
+    function initMap(){
+      const position = { lat: <%= stamp.latitude %>, lng: <%= stamp.longitude %> }
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: position,
+      zoom: 15
+      });
+
+      let marker = new google.maps.Marker({
+        position: position,
+        map: map
+      })
+    }
+  </script>
+<% end %>
+      </article>
+    </div>
+  </div>
+</div>
+
+
 
 <%= @stamp_rally.title %><br>
 <%= @stamp_rally.description %>
@@ -32,4 +85,3 @@
     }
   </script>
 <% end %>
-</div>

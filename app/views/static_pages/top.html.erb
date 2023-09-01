@@ -1,3 +1,22 @@
-<div class="container-fluid container-m">
-  <h1>Top Page</h1>
+<div class="container mt-5">
+  <div class="row pt-5">
+    <div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag 'top1.jpg', class: 'd-block w-100' %>
+        </div>
+        <div class="carousel-item active">
+          <%= image_tag 'top2.jpg', class: 'd-block w-100' %>
+        </div>
+        <div class="carousel-item active">
+          <%= image_tag 'top3.jpg', class: 'd-block w-100' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-5">
+    <div class="text-center">
+      <%= link_to "みんなのスタンプラリー", stamp_rallies_path, class: 'btn btn-info btn-lg', style: 'width: 400px;' %>
+    </div>
+  </div>
 </div>
