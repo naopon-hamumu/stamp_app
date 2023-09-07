@@ -106,3 +106,5 @@ gem 'enum_help'
 
 # search
 gem 'ransack'
+gem 'coffee-rails'
+

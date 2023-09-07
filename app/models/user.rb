@@ -9,6 +9,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
+  def own?(object)
+    id == object.user_id
+  end
+
   class << self
     def without_sns_data(auth)
       user = User.where(email: auth.info.email).first

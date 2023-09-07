@@ -1,17 +1,15 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+<header class="mb-5 pb-3">
+  <nav class="navbar navbar-light bg-info fixed-top">
     <div class="container-fluid">
       <%= link_to "Stamp App", top_path, class: "navbar-brand" %>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to t('defaults.register'), signup_path, class: "nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to t('defaults.login'), login_path, class: "nav-link active nav-item" %>
-          </li>
-        </ul>
-      </div>
+      <ul class="navbar-nav ms-auto" style="flex-direction: row;">
+        <li class="nav-item">
+          <%= link_to t('defaults.register'), signup_path, class: "nav-link active me-2" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('defaults.login'), login_path, class: "nav-link active" %>
+        </li>
+      </ul>
     </div>
   </nav>
 </header>

@@ -1,11 +1,21 @@
-<%= f.fields_for :stamps do |s| %>
-  <%= s.label :name %>
-  <%= s.text_field :name %>
-  <%= s.label :sticker %>
-  <%= s.file_field :sticker %>
-  <%= s.hidden_field :latitude, id: :lat %>
-  <%= s.hidden_field :longitude, id: :lng %>
-<% end %>
+<div class="nested-fields">
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'col-mb-6 my-2' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :sticker %>
+      <%= f.file_field :sticker, class: 'col-mb-6 mb-2' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.hidden_field :latitude, id: :lat %>
+    <%= f.hidden_field :longitude, id: :lng %>
+  </div>
+  <%= link_to_remove_association '削除', f %>
+
+</div>
 
 <h4>Map</h4>
 <input id="address" type="textbox" value="GeekSalon">

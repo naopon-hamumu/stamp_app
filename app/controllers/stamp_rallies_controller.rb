@@ -3,8 +3,13 @@ class StampRalliesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @q = StampRally.public_open.ransack(params[:q])
-    @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user).order(created_at: :desc)
+    @q = StampRally.ransack(params[:q])
+    @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user).order(updated_at: :desc)
+
+    @all_stamp_rallies = @stamp_rallies.public_open
+    if user_signed_in?
+      @own_stamp_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc)
+    end
   end
 
   def new
