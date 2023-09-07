@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_112806) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_182925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_112806) do
     t.datetime "updated_at", null: false
     t.index ["stamp_rally_id"], name: "index_participants_on_stamp_rally_id"
     t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
+  create_table "participants_stamps", force: :cascade do |t|
+    t.bigint "participant_id", null: false
+    t.bigint "stamp_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_participants_stamps_on_participant_id"
+    t.index ["stamp_id"], name: "index_participants_stamps_on_stamp_id"
   end
 
   create_table "sns_credentials", force: :cascade do |t|
@@ -100,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_112806) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "participants", "stamp_rallies"
   add_foreign_key "participants", "users"
+  add_foreign_key "participants_stamps", "participants"
+  add_foreign_key "participants_stamps", "stamps"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "stamp_rallies", "users"
   add_foreign_key "stamps", "stamp_rallies"
