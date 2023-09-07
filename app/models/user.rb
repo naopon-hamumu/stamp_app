@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :sns_credential, dependent: :destroy
   has_many :stamp_rallies, dependent: :destroy
   has_many :participants, dependent: :destroy
+  has_many :participate_stamp_rallies, through: :participants, class_name: 'StampRally', source: :stamp_rally
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -9,8 +10,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
-  def own?(object)
-    id == object.user_id
+  def own?(stamp_rally)
+    stamp_rally.user_id == id
+  end
+
+  def participate(stamp_rally)
+    participants.find_or_create_by(stamp_rally_id: stamp_rally.id)
+  end
+
+  def participate?(stamp_rally)
+    participate_stamp_rallies.include?(stamp_rally)
+  end
+
+  def cancel_participate(stamp_rally)
+    participate_stamp_rallies.destroy(stamp_rally)
   end
 
   class << self

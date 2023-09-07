@@ -3,22 +3,26 @@
   <div class="row pt-3 mb-3">
     <div class="col-lg-8 offset-lg-2">
       <h1><%=  %></h1>
-      <article class="card">
+      <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-md-3">
               <%= image_tag @stamp_rally.image.url, class: "card-img-top img-fluid", size: '300x200' %>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
               <h3 style="display: inline;"><%= @stamp_rally.title %></h3>
               <ul class="list-inline">
                 <li class="list-inline-item"><%= @stamp_rally.user.name %></li>
                 <li class="list-inline-item"><%= l @stamp_rally.updated_at, format: :long %></li>
               </ul>
             </div>
+            <div class="col-md-3">
+              <%= render 'participation_button' %>
+            </div>
           </div>
           <p><%= simple_format(@stamp_rally.description) %></p>
         </div>
+
         <% @stamp_rally.stamps.each do |stamp| %>
   <div id="map" style="height: 300px; width: 300px;"></div>
   <style>
@@ -47,7 +51,7 @@
     }
   </script>
 <% end %>
-      </article>
+      </div>
     </div>
   </div>
 </div>

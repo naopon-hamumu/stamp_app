@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'participants/create'
   root "stamp_rallies#index"
   get "top", to: "static_pages#top"
   get "sitepolicy", to: "static_pages#sitepolicy"
@@ -21,6 +22,6 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resource :participation, only: %i[create destroy], module: :stamp_rallies
+    resource :participant, only: %i[create destroy], module: :stamp_rallies
   end
 end
