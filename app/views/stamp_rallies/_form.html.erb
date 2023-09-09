@@ -16,19 +16,17 @@
     <%= f.label :visibility %>
     <%= f.select :visibility, StampRally.visibilities_i18n.invert %>
   </div>
-  <div id="stamps" class="ready">
-    <% f.fields_for :stamps do |stamp| %>
-      <%= render 'stamp_fields', f: stamp %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add more', f, :stamps,
-          data: { data_association_insertion_traversal: 'closest',
-        association_insertion_method: 'append'} %>
+  <div data-controller="nested-rondo">
+    <div data-nested-rondo-target="fieldContain">
+      <div class="links">
+        <%= link_to_add_association "Add more", f, :stamps %>
+      </div>
+      <%= f.fields_for :stamps do |stamp| %>
+        <%= render 'stamp_fields', f: stamp %>
+      <% end %>
     </div>
-
   </div>
   <div class="actions">
     <%= f.submit "登録" %>
   </div>
 <% end %>
-

@@ -99,7 +99,8 @@ gem 'image_processing'
 gem 'gmaps4rails'
 gem 'geocoder'
 
-gem 'cocoon'
+# related_db_save
+gem 'rondo_form', '~> 0.2.3'
 
 # enum
 gem 'enum_help'
@@ -108,3 +109,4 @@ gem 'enum_help'
 gem 'ransack'
 gem 'coffee-rails'
 
+gem 'gon'
