@@ -16,7 +16,8 @@
 
   <h4>Map</h4>
   <input class="address" type="textbox">
-  <input type="button" value="検索" onclick="codeAddress()">
+  <!-- `onclick`イベントで関連する`map-container`を渡します -->
+  <input type="button" value="検索" onclick="codeAddress(this.closest('[data-controller=\'map-container\']'))">
   <p>マーカーをドラック＆ドロップで位置の調整ができます。</p>
   <div class="map"></div>
 
