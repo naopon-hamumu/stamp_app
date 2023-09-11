@@ -9,6 +9,9 @@ export default class extends Controller {
     let assoc = e.target.dataset.association;
     let newField = this.buildNewAssociation(assoc);
     this.fieldContainTarget.insertAdjacentHTML("beforeend", newField);
+
+    const newMapContainer = this.fieldContainTarget.lastElementChild;
+    window.initMap(newMapContainer);
   }
 
   removeField(e) {
@@ -31,7 +34,6 @@ export default class extends Controller {
     let newContent = content.replace(regexpBraced, '[' + newId + ']');
 
     if (newContent == content) {
-      // assoc can be singular or plural 
       regexpBraced = new RegExp('\\[new_' + assoc + 's\\]', 'g');
       newContent = content.replace(regexpBraced, '[' + newId + ']');
     }
