@@ -20,7 +20,6 @@
   <input type="button" value="検索" onclick="codeAddress(this.closest('[data-controller=\'map-container\']'))">
   <p>マーカーをドラック＆ドロップで位置の調整ができます。</p>
   <div class="map"></div>
-
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap" async defer></script>
   <%= link_to_remove_association '削除', f %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
 </div>

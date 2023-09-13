@@ -10,4 +10,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "google-maps", to: "https://ga.jspm.io/npm:google-maps@4.3.3/lib/cjs/index.js", preload: true
 pin "@googlemaps/js-api-loader", to: "https://ga.jspm.io/npm:@googlemaps/js-api-loader@1.16.2/dist/index.esm.js", preload: true
 pin "underscore", to: "https://ga.jspm.io/npm:underscore@1.13.6/modules/index-all.js", preload: true
-pin "map", preload: true
+pin "map_new"
+pin "map_show"

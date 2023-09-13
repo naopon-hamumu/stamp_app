@@ -1,7 +1,4 @@
-<head>
-  <meta name="turbo-visit-control" content="reload">
-</head>
-
+<%= javascript_include_tag 'map_show' %>
 <div class="container mt-5">
   <div class="row pt-3 mb-3">
     <div class="col-lg-8 offset-lg-2">
@@ -26,20 +23,18 @@
           <p><%= simple_format(@stamp_rally.description) %></p>
         </div>
 
-        <% @stamp_rally.stamps.each do |stamp| %>
-          <div id="map" data-latitude="<%= stamp.latitude %>" 
-                        data-longitude="<%= stamp.longitude %>"
-                        style="height: 300px; width: 300px;">
-          </div>
-          <style>
-            #map {
-            height: 500px;
-            width: 70%;
-            }
-          </style>
+        <% @stamp_rally.stamps.each_with_index do |stamp, index| %>
+          <div id="map-show-<%= index %>" style="height:400px; width:100%; margin-bottom: 20px;"></div>
+        <% end %>
 
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap" async defer></script></div>
-      <% end %>
+        <script type="module" data-turbo-eval="false">
+          import { MapShow } from "map_show";
+          
+          <% @stamp_rally.stamps.each_with_index do |stamp, index| %>
+            MapShow.init('map-show-<%= index %>', <%= stamp.latitude %>, <%= stamp.longitude %>);
+          <% end %>
+        </script>
+              <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
       </div>
     </div>
   </div>
