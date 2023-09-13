@@ -9,7 +9,9 @@ class StampRalliesController < ApplicationController
     @all_stamp_rallies = @stamp_rallies.public_open
     if user_signed_in?
       @own_stamp_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc)
-      # @participate_stamp_rallies = current_user.participants.includes(:stamp_rally).order(updated_at: :desc)
+      @participate_stamp_rallies = current_user.participants.map do |participant|
+        participant.stamp_rally
+      end
     end
   end
 

@@ -24,6 +24,7 @@
         </div>
 
         <% @stamp_rally.stamps.each_with_index do |stamp, index| %>
+          <h5>スタンプ名：<%= stamp.name %></h5>
           <div id="map-show-<%= index %>" style="height:400px; width:100%; margin-bottom: 20px;"></div>
         <% end %>
 
