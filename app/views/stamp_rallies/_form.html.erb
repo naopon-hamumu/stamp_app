@@ -1,0 +1,32 @@
+<%= form_with model: @stamp_rally, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control mb-2' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control mb-2', rows: 5 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, onchange: 'previewImage()', class: 'form-control mb-2', accept: "image/*" %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="form-group">
+    <%= f.label :visibility %>
+    <%= f.select :visibility, StampRally.visibilities_i18n.invert %>
+  </div>
+  <div data-controller="nested-rondo">
+    <div data-nested-rondo-target="fieldContain">
+      <div class="links">
+        <%= link_to_add_association "Add more", f, :stamps %>
+      </div>
+      <%= f.fields_for :stamps do |stamp| %>
+        <%= render 'stamp_fields', f: stamp %>
+      <% end %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+<% end %>

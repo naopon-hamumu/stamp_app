@@ -1,0 +1,2 @@
+module StampRallies::ParticipantsStampsHelper
+end

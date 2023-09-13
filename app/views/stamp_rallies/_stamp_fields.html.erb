@@ -1,0 +1,25 @@
+<div class="nested-fields" data-controller="map-container">
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'col-mb-6 my-2' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :sticker %>
+      <%= f.file_field :sticker, class: 'col-mb-6 mb-2' %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :latitude, class: 'lat' %>
+      <%= f.hidden_field :longitude, class: 'lng' %>
+    </div>
+  </div>
+
+  <h4>Map</h4>
+  <input class="address" type="textbox">
+  <!-- `onclick`イベントで関連する`map-container`を渡します -->
+  <input type="button" value="検索" onclick="codeAddress(this.closest('[data-controller=\'map-container\']'))">
+  <p>マーカーをドラック＆ドロップで位置の調整ができます。</p>
+  <div class="map"></div>
+  <%= link_to_remove_association '削除', f %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
+</div>

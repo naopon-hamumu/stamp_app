@@ -1,0 +1,6 @@
+<%= turbo_frame_tag :users do %>
+  <% form_for(resource, as: resource_name, url: registration_path(resource_name), data: { action: "turbo:submit-end->modal#close" }, html: { method: :put }) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <% end %>
+<% end %>

@@ -1,0 +1,34 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <%= render 'shared/search_form' %>
+    </div>
+  </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-bs-toggle="tab"
+        href="#home" role="tab" aria-controls="home" aria-selected="true">home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-bs-toggle="tab"
+        href="#profile" role="tab" aria-controls="profile" aria-selected="false">profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-bs-toggle="tab"
+        href="#contact" role="tab" aria-controls="contact" aria-selected="false">contact</a>
+    </li>
+  </ul>
+  <div class="tab-content mt-3" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      みんなのやつ
+      <%= render 'stamp_rallies', stamp_rallies: @all_stamp_rallies %>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      作成したやつ
+      <%= render 'stamp_rallies', stamp_rallies: @own_stamp_rallies %>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      参加中
+    </div>
+  </div>
+</div>
