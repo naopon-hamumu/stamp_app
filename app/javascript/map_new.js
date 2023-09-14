@@ -1,10 +1,15 @@
 document.addEventListener('turbo:load', function() {
-  const mapContainers = document.querySelectorAll('[data-controller="map-container"]');
-  mapContainers.forEach((container) => {
-    const lat = parseFloat(container.querySelector('.lat').value) || 43.9965; // 網走監獄
-    const lng = parseFloat(container.querySelector('.lng').value) || 144.2305;
-    initMap(container, lat, lng);
-  });
+  console.log("turbo:load event triggered");
+  if (document.querySelector('.stamp-rally-new-page')) {
+    console.log("stamp-rally-new-page detected");
+    const mapContainers = document.querySelectorAll('[data-controller="map-container"]');
+    mapContainers.forEach((container) => {
+      console.log("Initializing map for container", container);
+      const lat = parseFloat(container.querySelector('.lat').value) || 43.9965;
+      const lng = parseFloat(container.querySelector('.lng').value) || 144.2305;
+      initMap(container, lat, lng);
+    });
+  }
 });
 
 function initMap(containerElement, initialLat = 43.9965, initialLng = 144.2305) {
