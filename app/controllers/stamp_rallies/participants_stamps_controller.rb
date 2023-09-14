@@ -1,6 +1,6 @@
 class StampRallies::ParticipantsStampsController < ApplicationController
   def index
-    @paticipate_stamp_rallies = current_user.participants
+    @stamps = ParticipantsStamp.where(participant_id: current_user.id)
   end
 
   def create

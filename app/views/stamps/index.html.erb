@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="row pt-3 mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%=  %></h1>
+      <% if @grouped_stamps.present? %>
+        <% @grouped_stamps.each do |stamps| %>
+          <%= render 'show', stamps: stamps %>
+        <% end %>
+      <% else %>
+        <p class="text-center">スタンプラリーに参加してスタンプを集めてね！</p>
+        <div class="text-center"><%= link_to 'みんなのスタンプラリーへ', root_path %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

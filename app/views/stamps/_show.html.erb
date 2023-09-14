@@ -1,0 +1,15 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div class="card" style="width: 20rem; height: 50rem;">
+    <div class="card-body">
+      <h3 class="text-center"><%= link_to StampRally.find(stamps[0]).title, stamp_rally_path(stamps[0]) %></h2>
+      <div class="row">
+        <% stamps[1].each do |stamp| %>
+          <div class="col-4">
+            <div class="text-center"><%= stamp.name %></div>
+            <%= image_tag stamp.sticker.url, size: '90x90', class: 'rounded-circle mr15' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

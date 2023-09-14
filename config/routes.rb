@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     end
     resource :participant, only: %i[create destroy], module: :stamp_rallies
   end
+
+  resources :stamps, only: %i[index]
 end

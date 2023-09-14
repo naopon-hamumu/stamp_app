@@ -15,11 +15,12 @@
         <%= link_to 'ホーム', root_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "スタンプラリー新規作成", new_stamp_rally_path,
+        <%= link_to "スタンプアルバム", stamps_path,
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "" %>
+        <%= link_to "スタンプラリー新規作成", new_stamp_rally_path,
+                    class: "nav-link active" %>
       </li>
       <li class="nav-item">
         <%= link_to t('defaults.logout'), destroy_user_session_path, 
