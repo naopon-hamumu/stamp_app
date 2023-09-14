@@ -1,4 +1,4 @@
-<div class="nested-fields" data-controller="map-container">
+<div class="nested-fields stamp-rally-new-page" data-controller="map-container">
   <div class="row">
     <div class="form-group">
       <%= f.label :name %>
@@ -21,5 +21,4 @@
   <p>マーカーをドラック＆ドロップで位置の調整ができます。</p>
   <div class="map"></div>
   <%= link_to_remove_association '削除', f %>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
 </div>
