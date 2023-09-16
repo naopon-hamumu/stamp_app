@@ -1,4 +1,5 @@
 <%= form_with model: @stamp_rally, local: true do |f| %>
+  <%= render 'error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control mb-2' %>
