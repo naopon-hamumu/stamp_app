@@ -7,28 +7,26 @@
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-bs-toggle="tab"
-        href="#home" role="tab" aria-controls="home" aria-selected="true">home</a>
+        href="#home" role="tab" aria-controls="home" aria-selected="true">みんなのスタンプラリー</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-bs-toggle="tab"
-        href="#profile" role="tab" aria-controls="profile" aria-selected="false">profile</a>
+      <a class="nav-link" id="own-tab" data-bs-toggle="tab"
+        href="#own" role="tab" aria-controls="own" aria-selected="false">自分で作成したスタンプラリー</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-bs-toggle="tab"
-        href="#contact" role="tab" aria-controls="contact" aria-selected="false">contact</a>
+      <a class="nav-link" id="participate-tab" data-bs-toggle="tab"
+        href="#participate" role="tab" aria-controls="participate" aria-selected="false">参加中のスタンプラリー</a>
     </li>
   </ul>
   <div class="tab-content mt-3" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      みんなのやつ
       <%= render 'stamp_rallies', stamp_rallies: @all_stamp_rallies %>
     </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      作成したやつ
+    <div class="tab-pane fade" id="own" role="tabpanel" aria-labelledby="own-tab">
       <%= render 'stamp_rallies', stamp_rallies: @own_stamp_rallies %>
     </div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      参加中
+    <div class="tab-pane fade" id="participate" role="tabpanel" aria-labelledby="participate-tab">
+      <%= render 'stamp_rallies', stamp_rallies: @participate_stamp_rallies %>
     </div>
   </div>
 </div>

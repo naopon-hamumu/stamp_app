@@ -23,5 +23,8 @@ Rails.application.routes.draw do
       get 'search'
     end
     resource :participant, only: %i[create destroy], module: :stamp_rallies
+    resources :participants_stamps, only: [:create], module: :stamp_rallies
   end
+
+  resources :stamps, only: %i[index]
 end

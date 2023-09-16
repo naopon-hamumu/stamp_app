@@ -110,3 +110,4 @@ gem 'ransack'
 gem 'coffee-rails'
 
 gem 'gon'
+# gem 'bullet'

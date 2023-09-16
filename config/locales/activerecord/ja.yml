@@ -23,5 +23,4 @@ ja:
     stamp_rally:
       visibility:
         public_open: '全体公開'
-        private_open: '一部に公開'
         unopen: '非公開'

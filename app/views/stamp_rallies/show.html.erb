@@ -1,12 +1,11 @@
-<%= javascript_include_tag 'map_show' %>
-<div class="container mt-5">
+<div class="container mt-5 stamp-rally-show-page">
   <div class="row pt-3 mb-3">
     <div class="col-lg-8 offset-lg-2">
       <h1><%=  %></h1>
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" data-id="<%= @stamp_rally.id %>" data-stamps='<%= @stamp_rally.stamps.to_json %>'>
               <%= image_tag @stamp_rally.image.url, class: "card-img-top img-fluid", size: '300x200' %>
             </div>
             <div class="col-md-6">
@@ -19,22 +18,19 @@
             <div class="col-md-3">
               <%= render 'participation_button' %>
             </div>
+              <%= render 'get_stamp', stamp_rally: @stamp_rally %>
           </div>
           <p><%= simple_format(@stamp_rally.description) %></p>
         </div>
 
         <% @stamp_rally.stamps.each_with_index do |stamp, index| %>
+          <h5>スタンプ名：<%= stamp.name %></h5>
           <div id="map-show-<%= index %>" style="height:400px; width:100%; margin-bottom: 20px;"></div>
         <% end %>
 
-        <script type="module" data-turbo-eval="false">
-          import { MapShow } from "map_show";
-          
-          <% @stamp_rally.stamps.each_with_index do |stamp, index| %>
-            MapShow.init('map-show-<%= index %>', <%= stamp.latitude %>, <%= stamp.longitude %>);
-          <% end %>
+        <script>
+          window.stamps = <%= @stamp_rally.stamps.map { |stamp| { latitude: stamp.latitude, longitude: stamp.longitude } }.to_json.html_safe %>;
         </script>
-              <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
       </div>
     </div>
   </div>
