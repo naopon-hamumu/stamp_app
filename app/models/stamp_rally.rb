@@ -7,7 +7,7 @@ class StampRally < ApplicationRecord
   has_many :participants_stamps, dependent: :destroy
   accepts_nested_attributes_for :stamps, allow_destroy: true
 
-  enum visibility: { public_open: 0, private_open: 1, unopen: 2 }
+  enum visibility: { public_open: 0, unopen: 1 }
 
   validates :title, length: { maximum: 50 }, presence: true
   validates :description, length: { maximum: 500 }

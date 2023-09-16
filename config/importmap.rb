@@ -13,3 +13,4 @@ pin "underscore", to: "https://ga.jspm.io/npm:underscore@1.13.6/modules/index-al
 pin "map_new", to: "map_new.js"
 pin "map_show", to: "map_show.js"
 pin "geolocation", to: "geolocation.js"
+pin "sweetalert2", to: "https://ga.jspm.io/npm:sweetalert2@11.7.28/dist/sweetalert2.all.js", preload: true

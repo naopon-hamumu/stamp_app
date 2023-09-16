@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 document.addEventListener("turbo:load", function() {
 
   window.getLocationAndDisplayStamps = function(stampRallyId) {
@@ -9,7 +11,7 @@ document.addEventListener("turbo:load", function() {
         showStampsWithinRadius(position, stampRallyId, stampsData);
       });
     } else {
-      alert("このブラウザはGeolocationをサポートしていません。");
+      Swal.fire('エラー', 'このブラウザはGeolocationをサポートしていません。', 'error');
     }
   }
 });
@@ -18,8 +20,8 @@ function showStampsWithinRadius(position, stampRallyId, stampsData) {
   const userLat = position.coords.latitude;
   const userLng = position.coords.longitude;
 
-  const RADIUS_100M_IN_DEGREES = 100 / (111 * 1000); // Convert 100m to degrees.
-  const RADIUS_1KM_IN_DEGREES = 1 / 111; // Convert 1km to degrees.
+  const RADIUS_100M_IN_DEGREES = 100 / (111 * 1000); 
+  const RADIUS_1KM_IN_DEGREES = 1 / 111;
 
   const stampsWithin100m = stampsData.filter(stamp => {
     const latDistance = Math.abs(stamp.latitude - userLat);
@@ -37,21 +39,21 @@ function showStampsWithinRadius(position, stampRallyId, stampsData) {
 
   if (stampsWithin100m.length) {
     if (stampsWithin100m[0].got) {
-      alert(`あなたは既にスタンプ「${stampsWithin100m[0].name}」を取得しています！`);
+      Swal.fire('注意', `あなたは既にスタンプ「${stampsWithin100m[0].name}」を取得しています！`, 'warning');
     } else {
-      saveStampToParticipantsStamp(stampRallyId, stampsWithin100m[0].id);
+      saveStampToParticipantsStamp(stampRallyId, stampsWithin100m[0]);
     }
   } else if (stampsWithin1km.length) {
-    alert("近く（1km以内）にスタンプがあります！");
+    Swal.fire('情報', '近く（1km以内）にスタンプがあります！', 'info');
     if (alreadyGotStamps.length) {
-      alert(`あなたは以下のスタンプを既に取得しています: ${alreadyGotStamps.map(stamp => stamp.name).join(", ")}`);
+      Swal.fire('情報', `あなたは以下のスタンプを既に取得しています: ${alreadyGotStamps.map(stamp => stamp.name).join(", ")}`, 'info');
     }
   } else {
-    alert("近くにスタンプは見つかりませんでした。");
+    Swal.fire('情報', '近くにスタンプは見つかりませんでした。', 'info');
   }
 }
 
-function saveStampToParticipantsStamp(stampRallyId, stampId) {
+function saveStampToParticipantsStamp(stampRallyId, stamp) {
   fetch(`/stamp_rallies/${stampRallyId}/participants_stamps`, {
     method: 'POST',
     headers: {
@@ -59,15 +61,23 @@ function saveStampToParticipantsStamp(stampRallyId, stampId) {
       'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     },
     body: JSON.stringify({
-      stamp_id: stampId
+      stamp_id: stamp.id
     })
   })
   .then(response => response.json())
   .then(data => {
     if (data.status !== "success") {
-      alert(`スタンプの保存エラー: ${data.message}`);
+      Swal.fire('エラー', `スタンプの保存エラー: ${data.message}`, 'error');
     } else {
-      alert("スタンプをゲットしました！");
+      Swal.fire({
+        title: "スタンプをゲットしました！",
+        text: stamp.name,
+        imageUrl: stamp.sticker.url,
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Stamp Image',
+        confirmButtonText: 'OK'
+      });
     }
   });
 }
