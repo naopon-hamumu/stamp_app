@@ -6,12 +6,10 @@ class StampRalliesController < ApplicationController
     @q = StampRally.ransack(params[:q])
     @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user).order(updated_at: :desc)
 
-    @all_stamp_rallies = @stamp_rallies.public_open
+    @all_stamp_rallies = @stamp_rallies.public_open.order(updated_at: :desc)
     if user_signed_in?
       @own_stamp_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc)
-      @participate_stamp_rallies = current_user.participants.map do |participant|
-        participant.stamp_rally
-      end
+      @participate_stamp_rallies = current_user.participants.order(created_at: :desc).map(&:stamp_rally)
     end
   end
 
