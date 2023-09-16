@@ -76,6 +76,7 @@ function saveStampToParticipantsStamp(stampRallyId, stamp) {
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Stamp Image',
+        imageClass: 'swal2-image',
         confirmButtonText: 'OK'
       });
     }

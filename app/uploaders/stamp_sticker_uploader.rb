@@ -21,9 +21,10 @@ class StampStickerUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  process resize_to_fill: [90, 90]
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
-  process resize_to_limit: [300, 200]
   #
   # def scale(width, height)
   #   # do something
