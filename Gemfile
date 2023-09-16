@@ -78,6 +78,10 @@ group :test do
   gem "guard-minitest", "2.4.6"
 end
 
+group :production do
+  gem 'pg'
+end
+
 gem 'rails-i18n', '~> 7.0'
 
 # Bootstrap
