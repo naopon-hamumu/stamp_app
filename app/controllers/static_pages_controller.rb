@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def top; end
 
-  def sitepolicy; end
+  def site_policy; end
 
-  def privacypolicy; end
+  def privacy_policy; end
 end
