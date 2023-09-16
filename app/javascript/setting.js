@@ -1,5 +1,4 @@
-document.addEventListener('turbo:load', function() {
-    // 背景画像のURLを直接指定
+function setBackgroundImage() {
     var backgroundImageUrl = "/assets/background.jpg"; // 画像のパスを指定
 
     // 背景画像を設定
@@ -8,4 +7,10 @@ document.addEventListener('turbo:load', function() {
     document.body.style.backgroundAttachment = 'fixed';
     document.body.style.backgroundSize = 'cover'; // 画像をカバーするように表示
     document.body.style.backgroundRepeat = 'no-repeat';
-});
+}
+
+// 伝統的なDOM読み込み完了イベント
+document.addEventListener('DOMContentLoaded', setBackgroundImage);
+
+// Turboのナビゲーションイベント
+document.addEventListener('turbo:render', setBackgroundImage);
