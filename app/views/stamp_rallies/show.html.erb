@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" data-id="<%= @stamp_rally.id %>" data-stamps='<%= @stamp_rally.stamps.to_json %>'>
               <%= image_tag @stamp_rally.image.url, class: "card-img-top img-fluid", size: '300x200' %>
             </div>
             <div class="col-md-6">
@@ -18,6 +18,7 @@
             <div class="col-md-3">
               <%= render 'participation_button' %>
             </div>
+              <%= render 'get_stamp', stamp_rally: @stamp_rally %>
           </div>
           <p><%= simple_format(@stamp_rally.description) %></p>
         </div>
