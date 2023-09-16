@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :participants, dependent: :destroy
   has_many :participate_stamp_rallies, through: :participants, class_name: 'StampRally', source: :stamp_rally
 
+  validates :name, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -30,6 +32,21 @@ class User < ApplicationRecord
     self.participants.joins(:participants_stamps).pluck('participants_stamps.stamp_id')
   end
 
+# パスワードなしで編集
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+  
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+  
+    result = update(params, *options)
+    clean_up_passwords
+    result
+  end  
+
+# omuniauth使用で登録・ログイン
   class << self
     def without_sns_data(auth)
       user = User.where(email: auth.info.email).first

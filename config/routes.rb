@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'participants/create'
   root "stamp_rallies#index"
   get "top", to: "static_pages#top"
-  get "sitepolicy", to: "static_pages#sitepolicy"
-  get "privacypolicy", to: "static_pages#privacypolicy"
+  get "site_policy", to: "static_pages#site_policy"
+  get "privacy_policy", to: "static_pages#privacy_policy"
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
