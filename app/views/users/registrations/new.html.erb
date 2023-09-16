@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row pt-3">
     <div class=" card col-lg-8 offset-lg-2">
-      <h2>Sign up</h2>
+      <h2>ユーザー登録</h2>
 
       <%= form_with model: @user, url: registration_path(resource_name), local: true do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="actions pt-2">
-          <%= f.submit "Sign up" %>
+          <%= f.submit "登録", class: 'btn btn-info' %>
         </div>
       <% end %>
 
