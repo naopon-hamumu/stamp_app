@@ -19,7 +19,7 @@
   <div data-controller="nested-rondo">
     <div data-nested-rondo-target="fieldContain">
       <div class="links">
-        <%= link_to_add_association "Add more", f, :stamps %>
+        <%= link_to_add_association "Add more", f, :stamps, data: { target: "nested-rondo.addButton" } %>
       </div>
       <%= f.fields_for :stamps do |stamp| %>
         <%= render 'stamp_fields', f: stamp %>
