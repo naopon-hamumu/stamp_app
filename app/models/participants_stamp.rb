@@ -4,4 +4,5 @@ class ParticipantsStamp < ApplicationRecord
 
   validates :participant, presence: true
   validates :stamp, presence: true
+  validates :participant_id, uniqueness: { scope: :stamp_id }
 end

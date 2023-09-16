@@ -20,5 +20,5 @@
   <input type="button" value="検索" onclick="codeAddress(this.closest('[data-controller=\'map-container\']'))">
   <p>マーカーをドラック＆ドロップで位置の調整ができます。</p>
   <div class="map"></div>
-  <%= link_to_remove_association '削除', f %>
+  <%= link_to_remove_association '削除', f, data: { nested_rondo_target: "removeButton" } %>
 </div>

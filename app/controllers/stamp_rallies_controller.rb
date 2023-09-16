@@ -56,7 +56,7 @@ class StampRalliesController < ApplicationController
   end
 
   def stamp_rally_params
-    params.require(:stamp_rally).permit(:title, :description, :image, :visibility,
-      stamps_attributes: [:name, :sticker, :latitude, :longitude, :address])
+    params.require(:stamp_rally).permit(:title, :description, :image, :image_cache, :visibility,
+      stamps_attributes: [:id, :name, :sticker, :latitude, :longitude, :address, :_destroy])
   end
 end

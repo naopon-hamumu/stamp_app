@@ -1,7 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["template", "fieldContain"]
+  static targets = ["template", "fieldContain", "removeButton"];
+
+  connect() {
+    this.updateRemoveButtonVisibility();
+  }
 
   addField(e) {
     e.preventDefault();
@@ -12,6 +16,8 @@ export default class extends Controller {
 
     const newMapContainer = this.fieldContainTarget.lastElementChild;
     window.initMap(newMapContainer);
+
+    this.updateRemoveButtonVisibility();
   }
 
   removeField(e) {
@@ -25,6 +31,8 @@ export default class extends Controller {
       wrapperField.querySelector("input[name*='_destroy']").value = 1;
       wrapperField.style.display = "none";
     }
+
+    this.updateRemoveButtonVisibility();
   }
 
   buildNewAssociation(assoc) {
@@ -38,5 +46,16 @@ export default class extends Controller {
       newContent = content.replace(regexpBraced, '[' + newId + ']');
     }
     return newContent;
+  }
+
+  updateRemoveButtonVisibility() {
+    const numberOfFields = this.fieldContainTarget.children.length - 1; // "Add more"リンクを除外
+    const removeButtons = this.removeButtonTargets;
+
+    if (numberOfFields <= 1) {
+      removeButtons.forEach(button => button.style.display = "none");
+    } else {
+      removeButtons.forEach(button => button.style.display = "inline-block");
+    }
   }
 }

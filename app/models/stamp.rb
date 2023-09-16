@@ -9,4 +9,6 @@ class Stamp < ApplicationRecord
 
   validates :name, length: { maximum: 25 }, presence: true
   validates :sticker, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
 end
