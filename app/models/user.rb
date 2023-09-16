@@ -26,6 +26,10 @@ class User < ApplicationRecord
     participate_stamp_rallies.destroy(stamp_rally)
   end
 
+  def acquired_stamp_ids
+    self.participants.joins(:participants_stamps).pluck('participants_stamps.stamp_id')
+  end
+
   class << self
     def without_sns_data(auth)
       user = User.where(email: auth.info.email).first

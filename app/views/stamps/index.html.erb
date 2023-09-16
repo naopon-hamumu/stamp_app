@@ -3,7 +3,7 @@
     <div class="col-lg-8 offset-lg-2">
       <% if @grouped_stamps.present? %>
         <% @grouped_stamps.each do |stamps| %>
-          <%= render 'show', stamps: stamps %>
+          <%= render stamps, stamps: stamps %>
         <% end %>
       <% else %>
         <p class="text-center">スタンプラリーに参加してスタンプを集めてね！</p>

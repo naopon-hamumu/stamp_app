@@ -5,6 +5,7 @@
       <h4 class="card-title">
         <%= link_to stamp_rally.title, stamp_rally_path(stamp_rally) %>
       </h4>
+      <%= render 'get_stamp', stamp_rally: stamp_rally %>
       <ul class="list-inline">
         <li class="list-inline-item">
           <%= stamp_rally.user.name %>

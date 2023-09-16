@@ -1,5 +1,5 @@
-<div class="col-md-12">
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="col-md-12">
     <% if current_user.participate?(@stamp_rally) %>
       <%= link_to '参加をやめる', stamp_rally_participant_path(@stamp_rally),
                                 class: 'btn btn-danger',
@@ -9,10 +9,10 @@
                             class: 'btn btn-primary',
                             data: { "turbo-method": :post } %>
     <% end %>
-  <% end %>
-</div>
-<div class="col-md-12">
-  <% if current_user.own?(@stamp_rally) %>
-    <%= link_to '編集', edit_stamp_rally_path(@stamp_rally) %>
-  <% end %>
-</div>
+  </div>
+  <div class="col-md-12">
+    <% if current_user.own?(@stamp_rally) %>
+      <%= link_to '編集', edit_stamp_rally_path(@stamp_rally) %>
+    <% end %>
+  </div>
+<% end %>

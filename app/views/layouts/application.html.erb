@@ -6,9 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= Gon::Base.render_data %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
+    <%= embed_stamps_data_if_needed %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script>
+      <% if user_signed_in? %>
+        var currentUserParticipantId = <%= current_user.participants.ids %>;
+        var currentUserStampIds = <%= current_user.participants.flat_map { |participant| participant.stamps.pluck(:id) }.to_json.html_safe %>;
+      <% end %>
+    </script>
     <%= yield(:js) %>
   </head>
 
