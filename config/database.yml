@@ -19,3 +19,5 @@ production:
   database: stamp_app_production
   username: stamp_app
   password: <%= ENV["STAMP_APP_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
