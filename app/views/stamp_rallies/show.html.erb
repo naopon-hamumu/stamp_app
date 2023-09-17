@@ -28,13 +28,11 @@
               <div data-stamp-id="<%= stamp.id %>" data-stamp='<%= stamp.to_json %>'>
                 <button onclick="getLocationAndDisplayStamps(<%= @stamp_rally.id %>, <%= stamp.id %>)", id="get-location-btn-<%= stamp.id %>", class="btn btn-info me-4">スタンプゲット</button>
               </div>
+              <script>
+                var alreadyAcquiredStamps = <%= current_user.acquired_stamp_ids.to_json.html_safe %>;
+              </script>
             <% end %>
           </div>
-
-          <script>
-            var alreadyAcquiredStamps = <%= current_user.acquired_stamp_ids.to_json.html_safe %>;
-          </script>
-          
           <% if user_signed_in? && !current_user.get?(stamp) %>
             <div id="map-show-<%= index %>" style="height:400px; width:100%; margin-bottom: 20px;"></div>
           <% else %>
