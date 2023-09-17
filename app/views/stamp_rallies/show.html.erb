@@ -35,10 +35,10 @@
           </div>
           <% if user_signed_in? && current_user.get?(stamp) %>
             <div class="d-flex align-items-center justify-content-center my-3" style="height: 200px;">
-            <%= image_tag stamp.sticker.url, size: '200x200', class: 'rounded-circle' %>
+              <%= image_tag stamp.sticker.url, size: '200x200', class: 'rounded-circle' %>
+            </div>
           <% else %>
             <div id="map-show-<%= index %>" style="height:400px; width:100%; margin-bottom: 20px;"></div>
-            </div>
           <% end %>
         <% end %>
         <script>
