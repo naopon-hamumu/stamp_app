@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :stamp_rallies, dependent: :destroy
   has_many :participants, dependent: :destroy
   has_many :participate_stamp_rallies, through: :participants, class_name: 'StampRally', source: :stamp_rally
+  has_many :get_stamps, through: :participants, source: :stamps
 
   validates :name, presence: true
 
@@ -26,6 +27,10 @@ class User < ApplicationRecord
 
   def cancel_participate(stamp_rally)
     participate_stamp_rallies.destroy(stamp_rally)
+  end
+
+  def get?(stamp)
+    get_stamps.include?(stamp)
   end
 
   def acquired_stamp_ids
