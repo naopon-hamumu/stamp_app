@@ -3,11 +3,11 @@
     <div class="row">
       <% if stamp_rallies.present? %>
         <%= render stamp_rallies %>
+      <% elsif !stamp_rallies.present? %>
+        <p>ありませぬ</p>
       <% elsif user_signed_in? == false %>
         <p>ログインしてね！</p>
         <%= link_to t('defaults.login'), login_path %>
-      <% else %>
-        <p>ありませぬ</p>
       <% end %>
     </div>
   </div>
