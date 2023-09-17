@@ -11,7 +11,7 @@ gem "rails", "~> 7.0.6"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use postgresql as the database for Active Record
-# gem "pg", "~> 1.1"
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -76,10 +76,6 @@ group :test do
   gem "minitest-reporters", "1.5.0"
   gem "guard", "2.18.0"
   gem "guard-minitest", "2.4.6"
-end
-
-group :production do
-  gem 'pg'
 end
 
 gem 'rails-i18n', '~> 7.0'
