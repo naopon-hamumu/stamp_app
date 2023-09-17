@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'participants/create'
-  root "stamp_rallies#index"
-  get "top", to: "static_pages#top"
+  root "static_pages#top"
   get "site_policy", to: "static_pages#site_policy"
   get "privacy_policy", to: "static_pages#privacy_policy"
 
@@ -18,12 +17,12 @@ Rails.application.routes.draw do
     get "login", to: "users/sessions#new"
   end
 
-  resources :stamp_rallies do
+  resources :stamp_rallies, only: %i[index new create show edit update destroy] do
     collection do
       get 'search'
     end
     resource :participant, only: %i[create destroy], module: :stamp_rallies
-    resources :participants_stamps, only: [:create], module: :stamp_rallies
+    resources :participants_stamps, only: %i[create], module: :stamp_rallies
   end
 
   resources :stamps, only: %i[index]

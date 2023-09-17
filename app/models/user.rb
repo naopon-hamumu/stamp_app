@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   has_many :sns_credential, dependent: :destroy
   has_many :stamp_rallies, dependent: :destroy
   has_many :participants, dependent: :destroy
