@@ -109,10 +109,10 @@ gem 'enum_help'
 gem 'ransack'
 gem 'coffee-rails'
 
-gem 'gon'
-
-gem 'bullet'
-
 # admin
 gem 'trestle-auth'
 gem 'trestle'
+
+# check
+gem 'bullet'
+gem 'rubocop'
