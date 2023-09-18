@@ -34,24 +34,24 @@ class User < ApplicationRecord
   end
 
   def acquired_stamp_ids
-    self.participants.joins(:participants_stamps).pluck('participants_stamps.stamp_id')
+    participants.joins(:participants_stamps).pluck('participants_stamps.stamp_id')
   end
 
-# パスワードなしで編集
+  # パスワードなしで編集
   def update_without_current_password(params, *options)
     params.delete(:current_password)
-  
+
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
       params.delete(:password_confirmation)
     end
-  
+
     result = update(params, *options)
     clean_up_passwords
     result
-  end  
+  end
 
-# omuniauth使用で登録・ログイン
+  # omuniauth使用で登録・ログイン
   class << self
     def without_sns_data(auth)
       user = User.where(email: auth.info.email).first
