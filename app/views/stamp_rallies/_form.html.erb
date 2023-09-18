@@ -9,18 +9,23 @@
     <%= f.text_area :description, class: 'form-control mb-2', rows: 5 %>
   </div>
   <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, onchange: 'previewImage()', class: 'form-control mb-2', accept: "image/*" %>
-    <%= f.hidden_field :image_cache %>
+      <%= f.label :image %>
+      <%= f.file_field :image, class: 'form-control mb-2', accept: "image/*" %>
+      <%= f.hidden_field :image_cache %>
+      <%= image_tag @stamp_rally.image.url,
+                    size: '300x200',
+                    class: 'mb-3' %>
   </div>
   <div class="form-group">
     <%= f.label :visibility %>
-    <%= f.select :visibility, StampRally.visibilities_i18n.invert %>
+    <%= f.select :visibility, StampRally.visibilities_i18n.invert, class: 'mb-2' %>
   </div>
   <div data-controller="nested-rondo">
     <div data-nested-rondo-target="fieldContain">
       <div class="links">
-        <%= link_to_add_association "Add more", f, :stamps, data: { target: "nested-rondo.addButton" } %>
+        <%= link_to_add_association "スタンプを追加する", f, :stamps,
+                    data: { target: "nested-rondo.addButton" },
+                    class: 'btn btn-info my-3' %>
       </div>
       <%= f.fields_for :stamps do |stamp| %>
         <%= render 'stamp_fields', f: stamp %>

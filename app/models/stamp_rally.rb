@@ -13,10 +13,10 @@ class StampRally < ApplicationRecord
   validates :description, length: { maximum: 500 }
 
   def self.ransackable_associations(auth_object = nil)
-    ["participations", "stamps", "user"]
+    %w[participations stamps user]
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "description", "id", "image", "title", "updated_at", "user_id", "visibility"]
+    %w[created_at description id image title updated_at user_id visibility]
   end
 end

@@ -6,9 +6,8 @@ Geocoder.configure(
     Geocoder::InvalidRequest,
     Geocoder::InvalidApiKey
   ],
-  api_key:  ENV['GOOGLE_MAPS_API_KEY'] ,
+  api_key: ENV['GOOGLE_MAPS_API_KEY'],
   use_https: true
-  
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)
