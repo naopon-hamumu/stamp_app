@@ -19,6 +19,7 @@
   <div class="form-group">
     <%= f.label :visibility %>
     <%= f.select :visibility, StampRally.visibilities_i18n.invert, class: 'mb-2' %>
+    <p>デフォルトは非公開になっています。</p>
   </div>
   <div data-controller="nested-rondo">
     <div data-nested-rondo-target="fieldContain">
