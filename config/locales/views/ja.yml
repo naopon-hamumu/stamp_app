@@ -3,6 +3,14 @@ ja:
     register: '登録'
     login: 'ログイン'
     logout: 'ログアウト'
+    edit: '編集'
+    delete: '削除'
+    message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
   static_pages:
     site_policy:
       title: '利用規約'
