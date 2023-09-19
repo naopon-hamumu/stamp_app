@@ -442,6 +442,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder (~> 2.11)
   jquery-rails
+  kaminari
   mini_magick
   minitest (= 5.15.0)
   minitest-reporters (= 1.5.0)

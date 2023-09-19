@@ -116,3 +116,6 @@ gem 'trestle-auth'
 # check
 gem 'bullet'
 gem 'rubocop'
+
+# page_nation
+gem 'kaminari'
