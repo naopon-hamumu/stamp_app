@@ -20,11 +20,11 @@
     </div>
   </div>
 
-  <h4>Map</h4>
-  <input class="address" type="textbox">
+  <h4><%= t 'stamp_rallies.form.stamp_map' %></h4>
+  <input class="address" type="textbox" placeholder="店舗名〇〇支店など">
   <!-- `onclick`イベントで関連する`map-container`を渡します -->
   <input type="button" value="検索" onclick="codeAddress(this.closest('[data-controller=\'map-container\']'))">
-  <p>マーカーをドラック＆ドロップで位置の調整ができます。</p>
+  <p><%= t 'stamp_rallies.form.doraggable' %></p>
   <div class="map"></div>
   <%= link_to_remove_association '削除', f, data: { nested_rondo_target: "removeButton" } %>
 </div>

@@ -1,7 +1,7 @@
 <div class="conatainer">
   <div class="row pt-3">
     <div class="card col-lg-8 offset-lg-2">
-      <h2 class="pt-3">ログイン</h2>
+      <h2 class="pt-3"><%= t 'defaults.login' %></h2>
 
       <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
 
@@ -23,7 +23,7 @@
         <% end %>
 
         <div class="actions pt-2">
-          <%= f.submit "ログイン", class: 'btn btn-info' %>
+          <%= f.submit (t 'defaults.login'), class: 'btn btn-info' %>
         </div>
       <% end %>
 

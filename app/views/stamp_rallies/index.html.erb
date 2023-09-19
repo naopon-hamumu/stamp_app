@@ -7,15 +7,21 @@
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-bs-toggle="tab"
-        href="#home" role="tab" aria-controls="home" aria-selected="true">みんなのスタンプラリー</a>
+        href="#home" role="tab" aria-controls="home" aria-selected="true">
+        <%= t '.home' %>
+      </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="own-tab" data-bs-toggle="tab"
-        href="#own" role="tab" aria-controls="own" aria-selected="false">自分で作成したスタンプラリー</a>
+        href="#own" role="tab" aria-controls="own" aria-selected="false">
+        <%= t '.own' %>
+      </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="participate-tab" data-bs-toggle="tab"
-        href="#participate" role="tab" aria-controls="participate" aria-selected="false">参加中のスタンプラリー</a>
+        href="#participate" role="tab" aria-controls="participate" aria-selected="false">
+        <%= t '.participate' %>
+      </a>
     </li>
   </ul>
   <div class="tab-content mt-3" id="myTabContent">

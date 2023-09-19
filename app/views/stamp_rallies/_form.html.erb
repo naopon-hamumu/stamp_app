@@ -19,12 +19,12 @@
   <div class="form-group">
     <%= f.label :visibility %>
     <%= f.select :visibility, StampRally.visibilities_i18n.invert, class: 'mb-2' %>
-    <p>※デフォルトは非公開になっています。</p>
+    <p><%= t '.default_unopen' %></p>
   </div>
   <div data-controller="nested-rondo">
     <div data-nested-rondo-target="fieldContain">
       <div class="links">
-        <%= link_to_add_association "スタンプを追加する", f, :stamps,
+        <%= link_to_add_association (t '.add_stamp_form'), f, :stamps,
                     data: { target: "nested-rondo.addButton" },
                     class: 'btn btn-info my-3' %>
       </div>
@@ -34,6 +34,6 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit "登録" %>
+    <%= f.submit class: 'btn btn-info my-3' %>
   </div>
 <% end %>

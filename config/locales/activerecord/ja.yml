@@ -19,6 +19,9 @@ ja:
       stamp:
         name: 'スタンプの名前'
         sticker: 'スタンプの画像'
+        latitude: '緯度'
+        longitude: '経度'
+        address: '住所'
   enums:
     stamp_rally:
       visibility:
