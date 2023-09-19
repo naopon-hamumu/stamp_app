@@ -5,12 +5,13 @@ class StampRalliesController < ApplicationController
   def index
     @q = StampRally.ransack(params[:q])
     @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user).order(updated_at: :desc)
+    @all_stamp_rallies = @stamp_rallies.public_open.order(updated_at: :desc).page(params[:page])
 
-    @all_stamp_rallies = @stamp_rallies.public_open.order(updated_at: :desc)
     return unless user_signed_in?
+    @own_stamp_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc).page(params[:own_page])
 
-    @own_stamp_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc)
-    @participate_stamp_rallies = current_user.participants.order(created_at: :desc).map(&:stamp_rally)
+    return unless current_user.participants.present?
+    @participate_stamp_rallies = current_user.participate_stamp_rallies.order(created_at: :desc).page(params[:participate_page])
   end
 
   def new

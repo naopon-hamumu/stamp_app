@@ -3,9 +3,12 @@
     <div class="row">
       <% if stamp_rallies.present? %>
         <%= render stamp_rallies %>
+        <div class="col-12 d-flex justify-content-center">
+          <%= paginate stamp_rallies, theme: 'bootstrap-5', param_name: page_param %>
+        </div>
       <% elsif !user_signed_in? %>
         <p class="text-center"><%= t 'defaults.message.require_login' %></p>
-        <%= link_to t('defaults.login'), login_path %>
+        <%= link_to t('defaults.login'), login_path, class: 'text-center' %>
       <% else %>
         <h3 class="text-center"><%= t 'defaults.message.not_present' %></h3>
       <% end %>

@@ -53,6 +53,9 @@ gem 'sassc-rails'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'bullet'
+  gem 'rubocop', require: false
+  gem 'faker'
 end
 
 group :development do
@@ -113,6 +116,6 @@ gem 'ransack'
 gem 'trestle'
 gem 'trestle-auth'
 
-# check
-gem 'bullet'
-gem 'rubocop'
+# page_nation
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
