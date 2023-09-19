@@ -449,12 +449,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder (~> 2.11)
   jquery-rails
+  kaminari
   mini_magick
   minitest (= 5.15.0)
   minitest-reporters (= 1.5.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  pg
+  pg (~> 1.1)
   popper_js (~> 2.11.8)
   puma (~> 5.0)
   rails (~> 7.0.6)
