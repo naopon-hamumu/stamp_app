@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <div class="col-md-12">
     <% if current_user.participate?(@stamp_rally) %>
-      <%= link_to '参加をやめる', stamp_rally_participant_path(@stamp_rally),
+      <%= link_to (t 'stamp_rallies.show.quit_participate'), stamp_rally_participant_path(@stamp_rally),
                                 class: 'btn btn-danger',
                                 data: { "turbo-method": :delete } %>
     <% else %>
-      <%= link_to '参加する', stamp_rally_participant_path(@stamp_rally),
+      <%= link_to (t 'stamp_rallies.show.participate'), stamp_rally_participant_path(@stamp_rally),
                             class: 'btn btn-primary',
                             data: { "turbo-method": :post } %>
     <% end %>

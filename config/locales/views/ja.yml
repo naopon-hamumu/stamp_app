@@ -4,5 +4,32 @@ ja:
     login: 'ログイン'
     logout: 'ログアウト'
   static_pages:
-    sitepolicy: '利用規約'
-    privacypolicy: 'プライバシーポリシー'
+    site_policy:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
+  users:
+    registrations:
+      new:
+        title: 'ユーザー登録'
+      edit:
+        title: 'ユーザー編集'
+  stamp_rallies:
+    index:
+      home: 'みんなのスタンプラリー'
+      own: '自分で作成したスタンプラリー'
+      participate: '参加中のスタンプラリー'
+    new:
+      title: 'スタンプラリー新規作成'
+    edit:
+      title: 'スタンプラリー編集'
+    form:
+      default_unopen: '※デフォルトでは非公開になっています。'
+      add_stamp_form: 'スタンプフォームを追加する'
+      doraggable: 'マーカーをドラック＆ドロップで位置の調整ができます。'
+      stamp_map: 'スタンプの設置場所'
+    show:
+      title: 'スタンプラリー詳細'
+      get_stamp: 'スタンプゲット'
+      quit_participate: '参加をやめる'
+      participate: '参加する'
