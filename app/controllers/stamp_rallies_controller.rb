@@ -21,8 +21,9 @@ class StampRalliesController < ApplicationController
   def create
     @stamp_rally = current_user.stamp_rallies.build(stamp_rally_params)
     if @stamp_rally.save
-      redirect_to @stamp_rally
+      redirect_to @stamp_rally, success: t('defaults.message.created', item: StampRally.model_name.human)
     else
+      flash.now[:danger] = t('defaults.message.not_created', item: StampRally.model_name.human)
       render 'new', status: :unprocessable_entity
     end
   end
@@ -36,15 +37,16 @@ class StampRalliesController < ApplicationController
 
   def update
     if @stamp_rally.update(stamp_rally_params)
-      redirect_to @stamp_rally
+      redirect_to @stamp_rally, success: t('defaults.message.updated', item: StampRally.model_name.human)
     else
+      flash.now[:danger] = t('defaults.message.not_updated', item: StampRally.model_name.human)
       render 'edit', status: :unprocessable_entity
     end
   end
 
   def destroy
     @stamp_rally.destroy!
-    redirect_to top_path
+    redirect_to stamp_rallies_path, success: t('defaults.message.deleted', item: StampRally.model_name.human)
   end
 
   private
