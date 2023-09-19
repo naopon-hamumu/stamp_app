@@ -5,7 +5,10 @@ ja:
     logout: 'ログアウト'
     edit: '編集'
     delete: '削除'
+    search: '検索'
     message:
+      require_login: 'ログインしてね！'
+      not_present: 'ありませぬ'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
       updated: "%{item}を更新しました"
@@ -16,6 +19,7 @@ ja:
       title: '利用規約'
     privacy_policy:
       title: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
   users:
     registrations:
       new:
@@ -24,6 +28,7 @@ ja:
         title: 'ユーザー編集'
   stamp_rallies:
     index:
+      title: 'スタンプラリー'
       home: 'みんなのスタンプラリー'
       own: '自分で作成したスタンプラリー'
       participate: '参加中のスタンプラリー'
@@ -33,7 +38,7 @@ ja:
       title: 'スタンプラリー編集'
     form:
       default_unopen: '※デフォルトでは非公開になっています。'
-      add_stamp_form: 'スタンプフォームを追加する'
+      add_stamp_form: 'スタンプのフォームを追加する'
       doraggable: 'マーカーをドラック＆ドロップで位置の調整ができます。'
       stamp_map: 'スタンプの設置場所'
     show:
@@ -41,3 +46,6 @@ ja:
       get_stamp: 'スタンプゲット'
       quit_participate: '参加をやめる'
       participate: '参加する'
+  stamps:
+    index:
+      title: 'スタンプアルバム'

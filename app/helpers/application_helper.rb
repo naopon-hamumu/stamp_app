@@ -8,4 +8,9 @@ module ApplicationHelper
     else type.to_s
     end
   end
+
+  def page_title(page_title = '')
+    base_title = 'Stamp Bon Voyage'
+    page_title.empty? ? base_title : page_title + ' | ' + base_title
+  end
 end
