@@ -117,5 +117,3 @@ gem 'trestle-auth'
 gem 'bullet'
 gem 'rubocop'
 
-# page_nation
-gem 'kaminari'
