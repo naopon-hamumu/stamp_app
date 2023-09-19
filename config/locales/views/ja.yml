@@ -49,3 +49,9 @@ ja:
   stamps:
     index:
       title: 'スタンプアルバム'
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'

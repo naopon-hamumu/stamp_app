@@ -27,13 +27,13 @@
   </ul>
   <div class="tab-content mt-3" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <%= render 'stamp_rallies', stamp_rallies: @all_stamp_rallies %>
+      <%= render 'stamp_rallies', stamp_rallies: @all_stamp_rallies, page_param: :page %>
     </div>
     <div class="tab-pane fade" id="own" role="tabpanel" aria-labelledby="own-tab">
-      <%= render 'stamp_rallies', stamp_rallies: @own_stamp_rallies %>
+      <%= render 'stamp_rallies', stamp_rallies: @own_stamp_rallies, page_param: :own_page %>
     </div>
     <div class="tab-pane fade" id="participate" role="tabpanel" aria-labelledby="participate-tab">
-      <%= render 'stamp_rallies', stamp_rallies: @participate_stamp_rallies %>
+      <%= render 'stamp_rallies', stamp_rallies: @participate_stamp_rallies, page_param: :participate_page %>
     </div>
   </div>
 </div>
