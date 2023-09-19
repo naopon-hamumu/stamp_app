@@ -3,11 +3,11 @@
     <div class="row">
       <% if stamp_rallies.present? %>
         <%= render stamp_rallies %>
-      <% elsif user_signed_in? == false %>
-        <p>ログインしてね！</p>
+      <% elsif !user_signed_in? %>
+        <p class="text-center"><%= t 'defaults.message.require_login' %></p>
         <%= link_to t('defaults.login'), login_path %>
       <% else %>
-        <p>ありませぬ</p>
+        <h3 class="text-center"><%= t 'defaults.message.not_present' %></h3>
       <% end %>
     </div>
   </div>

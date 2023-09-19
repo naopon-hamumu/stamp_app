@@ -6,20 +6,20 @@
       <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
         <%= current_user.name %>
       </h5>
-        <%= link_to "編集", edit_user_registration_path(current_user) %>
+        <%= link_to t('defaults.edit'), edit_user_registration_path(current_user) %>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
   </div>
   <div class="offcanvas-body">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
       <li class="nav-item">
-        <%= link_to 'スタンプラリー一覧', stamp_rallies_path, class: "nav-link active" %>
+        <%= link_to t('stamp_rallies.index.title'), stamp_rallies_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "スタンプアルバム", stamps_path,
+        <%= link_to t('stamps.index.title'), stamps_path,
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "スタンプラリー新規作成", new_stamp_rally_path,
+        <%= link_to t('stamp_rallies.new.title'), new_stamp_rally_path,
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
@@ -28,15 +28,15 @@
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "プライバシーポリシー", privacy_policy_path,
+        <%= link_to t('static_pages.privacy_policy.title'), privacy_policy_path,
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "利用規約", site_policy_path,
+        <%= link_to t('static_pages.site_policy.title'), site_policy_path,
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "お問い合わせ", "https://forms.gle/QvBf7dt52XZHJUnF6",
+        <%= link_to t('static_pages.contact'), "https://forms.gle/QvBf7dt52XZHJUnF6",
                     class: "nav-link active" %>
       </li>
     </ul>
