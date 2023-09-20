@@ -116,7 +116,3 @@ gem 'trestle-auth'
 # page_nation
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
-
-# AWS S3
-gem 'fog-aws'
-gem 'aws-sdk-s3', require: false
