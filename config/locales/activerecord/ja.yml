@@ -3,7 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       stamp_rally: 'スタンプラリー'
-      stamps: 'スタンプ'
+      stamp: 'スタンプ'
     attributes:
       user:
         name: 'ユーザー名'
@@ -16,6 +16,10 @@ ja:
         description: '説明'
         image: 'イメージ画像'
         visibility: '公開範囲設定'
+      stamps:
+        name: 'スタンプの名前'
+        sticker: 'スタンプの画像'
+        base: 'スタンプの'
       stamp:
         name: 'スタンプの名前'
         sticker: 'スタンプの画像'

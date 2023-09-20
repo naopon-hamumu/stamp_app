@@ -9,6 +9,11 @@ class Stamp < ApplicationRecord
 
   validates :name, length: { maximum: 25 }, presence: true
   validates :sticker, presence: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
+  validate :has_valid_geocoding?
+
+  def has_valid_geocoding?
+    if latitude.nil? || longitude.nil?
+      errors.add(:base, 'マップを入力してください')
+    end
+  end
 end
