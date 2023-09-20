@@ -11,8 +11,8 @@ CarrierWave.configure do |config|
       region:                'ap-northeast-1',
     }
     config.fog_directory  = 'stamp-bon-voyage'
-    config.fog_public     = false # オブジェクトへのすべてのアクセスをプライベートにします
-    config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # オプション
+    config.fog_public     = false
+    config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" }
   else
     config.storage = :file
     config.enable_processing = false if Rails.env.test?
