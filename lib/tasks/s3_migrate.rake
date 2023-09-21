@@ -9,7 +9,7 @@ namespace :s3 do
     end
 
     Stamp.all.each do |instance|
-      if instance.image && instance.image.file && instance.image.file.exists?
+      if instance.sticker && instance.sticker.file && instance.sticker.file.exists?
         instance.sticker.recreate_versions!
         instance.save!
       end
