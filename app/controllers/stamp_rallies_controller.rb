@@ -8,9 +8,11 @@ class StampRalliesController < ApplicationController
     @all_stamp_rallies = @stamp_rallies.public_open.order(updated_at: :desc).page(params[:page])
 
     return unless user_signed_in?
+
     @own_stamp_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc).page(params[:own_page])
 
     return unless current_user.participants.present?
+
     @participate_stamp_rallies = current_user.participate_stamp_rallies.order(created_at: :desc).page(params[:participate_page])
   end
 
