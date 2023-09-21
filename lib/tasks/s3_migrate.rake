@@ -3,6 +3,7 @@ namespace :s3 do
   task migrate: :environment do
     StampRally.all.each do |instance|
       if instance.image && instance.image.file && instance.image.file.exists?
+        puts "Processing StampRally ID: #{instance.id}"
         instance.image.recreate_versions!
         instance.save!
       end
@@ -10,6 +11,7 @@ namespace :s3 do
 
     Stamp.all.each do |instance|
       if instance.sticker && instance.sticker.file && instance.sticker.file.exists?
+        puts "Processing Stamp ID: #{instance.id}"
         instance.sticker.recreate_versions!
         instance.save!
       end
