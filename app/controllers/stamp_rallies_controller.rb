@@ -32,7 +32,7 @@ class StampRalliesController < ApplicationController
   end
 
   def show
-    @stamp_rally = StampRally.find(params[:id])
+    @stamp_rally = StampRally.includes(:stamps).find(params[:id])
     @stamps = @stamp_rally.stamps
   end
 
