@@ -1,6 +1,6 @@
-<div class="col-sm-12 col-md-6 col-lg-4 mb-3">
-  <div class="card" style="max-width: 100%; height: 25rem;" data-id="<%= stamp_rally.id %>" data-stamps='<%= stamp_rally.stamps.to_json %>'>
-    <%= image_tag stamp_rally.image.url, class: 'card-img-top', size: '300x200' %>
+<div class="col-sm-12 col-lg-4 mb-3 d-flex justify-content-center">
+  <div class="card" style="width: 300px; height: 400px;" data-id="<%= stamp_rally.id %>" data-stamps='<%= stamp_rally.stamps.to_json %>'>
+    <%= image_tag stamp_rally.image.url, class: 'card-img-top', style: 'max-width: 100%; height: auto;' %>
     <div class="card-body">
       <h4 class="card-title">
         <%= link_to stamp_rally.title, stamp_rally_path(stamp_rally) %>
