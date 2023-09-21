@@ -1,8 +1,6 @@
 class StampsController < ApplicationController
   def index
-    @grouped_stamps = Stamp.includes(:participants, :stamp_rally)
-                           .joins(:participants)
-                           .where(participants: { user_id: current_user.id })
+    @grouped_stamps = current_user.get_stamps
                            .order('participants.created_at DESC')
                            .group_by(&:stamp_rally_id)
   end
