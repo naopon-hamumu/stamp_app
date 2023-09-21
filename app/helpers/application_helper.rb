@@ -15,15 +15,17 @@ module ApplicationHelper
   end
 
   def default_meta_tags
-    { 
+    {
       site: 'Stamp Bon Voyage',
-      title: 'スタンプラリー作成・参加サービス',
       reverse: true,
       charset: 'utf-8',
-      description: '自由にスタンプラリーを作れて遊べるのだ🐹',
+      description: '自由にスタンプラリーを作って遊べるのだ🐹',
       keywords: 'スタンプラリー, スタンプ, ハムスター',
       canonical: request.original_url,
       separator: '|',
+      icon: [
+        { href: image_url('ogp.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+      ],
       og: {
         site_name: :site,
         title: :title,
@@ -31,12 +33,11 @@ module ApplicationHelper
         type: 'website',
         url: request.original_url,
         image: image_url('ogp.jpg'),
-        local: 'ja-JP'
+        local: 'ja-JP',
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@',
-        image: image_url('ogp.jpg')
+        image: image_url('ogp.jpg'),
       }
     }
   end
