@@ -120,3 +120,6 @@ gem 'bootstrap5-kaminari-views'
 # AWS S3
 gem 'fog-aws'
 gem 'aws-sdk-s3', require: false
+
+# ogp
+gem 'meta-tags'

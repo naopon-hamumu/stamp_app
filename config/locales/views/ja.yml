@@ -1,6 +1,7 @@
 ja: 
   defaults:
     register: '登録'
+    google_login: 'Google認証'
     login: 'ログイン'
     logout: 'ログアウト'
     edit: '編集'

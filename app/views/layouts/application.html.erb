@@ -11,6 +11,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= javascript_importmap_tags %>
     <%= yield(:js) %>
+    <%= display_meta_tags(default_meta_tags) %>
   </head>
 
   <body>
