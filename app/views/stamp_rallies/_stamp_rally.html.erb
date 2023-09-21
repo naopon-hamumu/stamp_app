@@ -2,8 +2,9 @@
   <div class="card" style="width: 300px; height: 400px;" data-id="<%= stamp_rally.id %>" data-stamps='<%= stamp_rally.stamps.to_json %>'>
     <%= image_tag stamp_rally.image.url, class: 'card-img-top', style: 'max-width: 100%; height: auto;' %>
     <div class="card-body">
-      <h4 class="card-title">
-        <%= link_to stamp_rally.title, stamp_rally_path(stamp_rally) %>
+      <h4 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        <%= link_to stamp_rally.title, stamp_rally_path(stamp_rally),
+            style: 'white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; display: block;' %>
       </h4>
       <ul class="list-inline">
         <li class="list-inline-item">
@@ -15,7 +16,9 @@
           <%= l stamp_rally.updated_at, format: :long %>
         </li>
       </ul>
-      <p class="card-text"><%= stamp_rally.description %></p>
+      <p class="card-text" style="overflow: hidden; max-height: 60px;">
+        <%= stamp_rally.description %>
+      </p>
     </div>
   </div>
 </div>
