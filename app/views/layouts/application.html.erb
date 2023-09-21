@@ -8,6 +8,7 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= javascript_importmap_tags %>
     <%= yield(:js) %>
   </head>

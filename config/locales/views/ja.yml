@@ -6,6 +6,7 @@ ja:
     edit: '編集'
     delete: '削除'
     search: '検索'
+    share: 'シェア'
     message:
       require_login: 'ログインしてね！'
       not_present: 'ありませぬ'

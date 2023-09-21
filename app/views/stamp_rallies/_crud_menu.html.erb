@@ -1,0 +1,11 @@
+<div class="col-md-12">
+  <% if user_signed_in? && current_user.own?(stamp_rally) %>
+    <%= link_to (t 'defaults.edit'), edit_stamp_rally_path(stamp_rally),
+                class: 'btn btn-warning',
+                id: "button-edit-#{stamp_rally.id}" %>
+    <%= link_to (t 'defaults.delete'), stamp_rally_path(stamp_rally),
+                class: 'btn btn-danger',
+                id: "button-delete-#{stamp_rally.id}",
+                data: { "turbo-method": :delete } %>
+  <% end %>
+</div>
