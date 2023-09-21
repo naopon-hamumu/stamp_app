@@ -82,6 +82,7 @@ README〜ER図作成：07/16 〆切
 - Sweetalert2
 - importmap
 - AWS S3（画像保存）
+- パスワードリセット機能
 
 ---
 ## 画面遷移図
