@@ -33,6 +33,12 @@ class User < ApplicationRecord
     get_stamps.include?(stamp)
   end
 
+  def get_stamp(stamp)
+    # participantsテーブルに対して直接レコードを追加する
+    participant = participants.find_or_create_by(stamp_rally_id: stamp.stamp_rally_id)
+    participant.stamps << stamp
+  end
+
   def acquired_stamp_ids
     participants.joins(:participants_stamps).pluck('participants_stamps.stamp_id')
   end

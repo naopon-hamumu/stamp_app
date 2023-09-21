@@ -2,11 +2,20 @@ import Swal from "sweetalert2";
 
 document.addEventListener("turbo:load", function() {
   const buttons = document.querySelectorAll('[id^="get-location-btn-"]');
-  
+
   buttons.forEach(button => {
     button.addEventListener('touchend', function() {
-      const stampId = button.id.split('-').pop();
-      getLocationAndDisplayStamps(stampId);
+      const ids = button.id.split('-').slice(-2);
+      const stampRallyId = ids[0];
+      const stampId = ids[1];
+      getLocationAndDisplayStamps(stampRallyId, stampId);
+    }, false);
+
+    button.addEventListener('click', function() {
+      const ids = button.id.split('-').slice(-2);
+      const stampRallyId = ids[0];
+      const stampId = ids[1];
+      getLocationAndDisplayStamps(stampRallyId, stampId);
     }, false);
   });
 });
@@ -15,14 +24,16 @@ window.getLocationAndDisplayStamps = function(stampRallyId, stampId) {
   Swal.fire({
     title: '位置情報取得🐹',
     text: 'しばらくお待ちください...',
-    onBeforeOpen: () => {
-      Swal.showLoading()
-    },
+    showLoaderOnConfirm: true,
     allowOutsideClick: false,
     showConfirmButton: false
   });
 
   const stampElement = document.querySelector(`[data-stamp-id='${stampId}']`);
+  if (!stampElement) {
+    Swal.fire('エラー', 'スタンプのデータが見つかりませんでした。', 'error');
+    return;
+  }
   const stampData = JSON.parse(stampElement.getAttribute('data-stamp'));
 
   if (navigator.geolocation) {
@@ -77,7 +88,6 @@ function saveStampToParticipantsStamp(stampRallyId, stamp) {
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Stamp Image',
-        imageClass: 'swal2-image',
         showConfirmButton: true
       });
     }
