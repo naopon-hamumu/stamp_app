@@ -13,5 +13,6 @@ namespace :s3 do
         instance.sticker.recreate_versions!
         instance.save!
       end
+    end
   end
 end
