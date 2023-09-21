@@ -23,10 +23,6 @@ window.getLocationAndDisplayStamps = function(stampRallyId, stampId) {
   });
 
   const stampElement = document.querySelector(`[data-stamp-id='${stampId}']`);
-  if (!stampElement) {
-    Swal.fire('エラー', 'スタンプのデータが見つかりませんでした。', 'error');
-    return;
-  }
   const stampData = JSON.parse(stampElement.getAttribute('data-stamp'));
 
   if (navigator.geolocation) {
