@@ -51,13 +51,13 @@
               </div>
             <% else %>
               <div id="map-show-<%= index %>" style="height:400px; width:100%; margin-bottom: 20px;"></div>
+              <script>
+                window.stamps = <%= @stamp_rally.stamps.map { |stamp| { latitude: stamp.latitude, longitude: stamp.longitude } }.to_json.html_safe %>;
+              </script>
             <% end %>
           <% end %>
           <%= render 'crud_menu', stamp_rally: @stamp_rally %>
         </div>
-        <script>
-          window.stamps = <%= @stamp_rally.stamps.map { |stamp| { latitude: stamp.latitude, longitude: stamp.longitude } }.to_json.html_safe %>;
-        </script>
       </div>
     </div>
   </div>
