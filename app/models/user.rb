@@ -2,8 +2,8 @@ class User < ApplicationRecord
   has_many :sns_credential, dependent: :destroy
   has_many :stamp_rallies, dependent: :destroy
   has_many :participants, dependent: :destroy
-  has_many :participate_stamp_rallies, through: :participants, class_name: 'StampRally', source: :stamp_rally, dependent: :destroy
-  has_many :get_stamps, through: :participants, source: :stamps, dependent: :destroy
+  has_many :participate_stamp_rallies, through: :participants, class_name: 'StampRally', source: :stamp_rally
+  has_many :get_stamps, through: :participants, source: :stamps
 
   validates :name, presence: true
 
@@ -34,7 +34,6 @@ class User < ApplicationRecord
   end
 
   def get_stamp(stamp)
-    # participantsテーブルに対して直接レコードを追加する
     participant = participants.find_or_create_by(stamp_rally_id: stamp.stamp_rally_id)
     participant.stamps << stamp
   end
