@@ -16,10 +16,16 @@ class StampRalliesController < ApplicationController
     @participate_stamp_rallies = current_user.participate_stamp_rallies.order(created_at: :desc).page(params[:participate_page])
   end
 
+  def show
+    @stamp_rally = StampRally.includes(:stamps).find(params[:id])
+  end
+
   def new
     @stamp_rally = StampRally.new
     @stamps = @stamp_rally.stamps.build
   end
+
+  def edit; end
 
   def create
     @stamp_rally = current_user.stamp_rallies.build(stamp_rally_params)
@@ -30,13 +36,6 @@ class StampRalliesController < ApplicationController
       render 'new', status: :unprocessable_entity
     end
   end
-
-  def show
-    @stamp_rally = StampRally.includes(:stamps).find(params[:id])
-    @stamps = @stamp_rally.stamps
-  end
-
-  def edit; end
 
   def update
     if @stamp_rally.update(stamp_rally_params)
