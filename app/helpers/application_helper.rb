@@ -24,7 +24,9 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '|',
       icon: [
-        { href: image_url('ogp.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+        { href: image_url('ogp.jpg'),
+          sizes: '180x180',
+          type: 'image/png' },
       ],
       og: {
         site_name: :site,
@@ -33,7 +35,7 @@ module ApplicationHelper
         type: 'website',
         url: request.original_url,
         image: image_url('ogp.jpg'),
-        local: 'ja-JP',
+        locale: 'ja_JP',
       },
       twitter: {
         card: 'summary_large_image',
