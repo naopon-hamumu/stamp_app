@@ -26,5 +26,8 @@
   <input type="button" value="検索" onclick="codeAddress(this.closest('[data-controller=\'map-container\']'))">
   <p><%= t 'stamp_rallies.form.doraggable' %></p>
   <div class="map"></div>
-  <%= link_to_remove_association t('defaults.delete'), f, data: { nested_rondo_target: "removeButton" } %>
+  <%= link_to_remove_association t('defaults.delete'), f,
+      data: { nested_rondo_target: "removeButton",
+      action: "nested-rondo#updateRemoveButtonVisibility" },
+      style: (f.object.new_record? || @stamp_rally.stamps.size > 1) ? "" : "display: none;" %>
 </div>

@@ -26,8 +26,10 @@
     <div data-nested-rondo-target="fieldContain">
       <div class="links">
         <%= link_to_add_association (t '.add_stamp_form'), f, :stamps,
-                    data: { target: "nested-rondo.addButton" },
-                    class: 'btn btn-info my-3' %>
+                data: { nested_rondo_target: "addButton",
+                action: "nested-rondo#addField" },
+                class: 'btn btn-info my-3' %>
+
       </div>
       <%= f.fields_for :stamps do |stamp| %>
         <%= render 'stamp_fields', f: stamp %>
