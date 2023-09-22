@@ -24,7 +24,7 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '|',
       icon: [
-        { href: image_url('ogp.jpg'),
+        { href: image_url('ogp.png'),
           sizes: '180x180',
           type: 'image/png' },
       ],
@@ -34,12 +34,12 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: image_url('ogp.jpg'),
+        image: image_url('ogp.png'),
         locale: 'ja_JP',
       },
       twitter: {
         card: 'summary_large_image',
-        image: image_url('ogp.jpg'),
+        image: image_url('ogp.png'),
       }
     }
   end
