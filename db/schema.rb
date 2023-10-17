@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_17_231202) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_091254) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_17_231202) do
     t.index ["user_id"], name: "index_stamp_rallies_on_user_id"
   end
 
+  create_table "stamp_rally_tags", force: :cascade do |t|
+    t.bigint "stamp_rally_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stamp_rally_id"], name: "index_stamp_rally_tags_on_stamp_rally_id"
+    t.index ["tag_id"], name: "index_stamp_rally_tags_on_tag_id"
+  end
+
   create_table "stamps", force: :cascade do |t|
     t.bigint "stamp_rally_id", null: false
     t.string "name", null: false
@@ -73,6 +82,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_17_231202) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["stamp_rally_id"], name: "index_stamps_on_stamp_rally_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,5 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_17_231202) do
   add_foreign_key "participants_stamps", "stamps"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "stamp_rallies", "users"
+  add_foreign_key "stamp_rally_tags", "stamp_rallies"
+  add_foreign_key "stamp_rally_tags", "tags"
   add_foreign_key "stamps", "stamp_rallies"
 end
