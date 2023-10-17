@@ -2,9 +2,10 @@
   <div class="input-group mb-3">
     <%= f.search_field :title_or_description_cont,
                        class: 'form-control',
-                       placeholder: t('stamp_rallies.index.home') %>
+                       placeholder: t('stamp_rallies.index.title') %>
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'リセット', stamp_rallies_path, class: 'btn btn-info' %>
     </div>
   </div>
 <% end %>
