@@ -5,6 +5,10 @@ class Tag < ApplicationRecord
   before_validation :downcase_name
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "name", "updated_at"]
+  end
+
   private
 
   def downcase_name

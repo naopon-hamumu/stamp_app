@@ -1,8 +1,8 @@
 <%= search_form_for @q, url: stamp_rallies_path do |f| %>
   <div class="input-group mb-3">
-    <%= f.search_field :title_or_description_cont,
+    <%= f.search_field :title_or_description_or_tags_name_cont,
                        class: 'form-control',
-                       placeholder: t('stamp_rallies.index.title') %>
+                       placeholder: 'スタンプラリーの名前、説明、タグから検索できます。' %>
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
       <%= link_to 'リセット', stamp_rallies_path, class: 'btn btn-info' %>

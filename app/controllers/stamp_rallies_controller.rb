@@ -5,18 +5,23 @@ class StampRalliesController < ApplicationController
 
   def index
     @q = StampRally.ransack(params[:q])
-    @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user).order(updated_at: :desc)
-    @all_stamp_rallies = @stamp_rallies.public_open.order(updated_at: :desc).page(params[:page])
+    @stamp_rallies = @q.result(distinct: true).includes(:stamps, :user)
+    @all_stamp_rallies = @stamp_rallies.public_open.order(updated_at: :desc)
+                                       .page(params[:page])
 
     return unless user_signed_in?
 
-    own_rallies = current_user.stamp_rallies.includes(:stamps).order(updated_at: :desc)
-    @own_stamp_rallies = @q.result(distinct: true).merge(own_rallies).page(params[:own_page])
+    own_rallies = current_user.stamp_rallies.includes(:stamps)
+                              .order(updated_at: :desc)
+    @own_stamp_rallies = @q.result(distinct: true).merge(own_rallies)
+                           .page(params[:own_page])
 
     return unless current_user.participants.present?
 
-    participate_rallies = current_user.participate_stamp_rallies.order(created_at: :desc)
-    @participate_stamp_rallies = @q.result(distinct: true).merge(participate_rallies).page(params[:participate_page])
+    participate_rallies = current_user.participate_stamp_rallies
+                                      .order(created_at: :desc)
+    @participate_stamp_rallies = @q.result(distinct: true).merge(participate_rallies)
+                                   .page(params[:participate_page])
   end
 
   def show

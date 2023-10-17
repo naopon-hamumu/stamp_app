@@ -16,7 +16,7 @@ class StampRally < ApplicationRecord
   validate :at_least_one_stamp
 
   def self.ransackable_associations(auth_object = nil)
-    %w[participations stamps user]
+    %w[participations stamps user tags]
   end
 
   def self.ransackable_attributes(auth_object = nil)
