@@ -19,6 +19,11 @@
       <p class="card-text" style="overflow: hidden; max-height: 3em; line-height: 1.5em;">
         <%= stamp_rally.description %>
       </p>
+      <% if stamp_rally.tags.present? %>
+        <div class="mb-3">
+          <%= render 'tags', stamp_rally: stamp_rally %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
