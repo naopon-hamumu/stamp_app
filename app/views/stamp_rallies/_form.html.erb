@@ -9,6 +9,14 @@
     <%= f.text_area :description, class: 'form-control mb-2', rows: 5 %>
   </div>
   <div class="form-group">
+    <%= f.label :tag_names %>
+    <%= f.text_area :tag_names,
+                    class: 'form-control tag-input',
+                    value: @stamp_rally.tags.map(&:name).join(','),
+                    rows: 1 %>
+    <p class="mb2">※「 , 」で区切れます。</p>
+  </div>
+  <div class="form-group">
       <%= f.label :image %>
       <%= f.file_field :image, class: 'form-control mb-2', accept: "image/*" %>
       <%= f.hidden_field :image_cache %>
@@ -29,7 +37,6 @@
                 data: { nested_rondo_target: "addButton",
                 action: "nested-rondo#addField" },
                 class: 'btn btn-info my-3' %>
-
       </div>
       <%= f.fields_for :stamps do |stamp| %>
         <%= render 'stamp_fields', f: stamp %>

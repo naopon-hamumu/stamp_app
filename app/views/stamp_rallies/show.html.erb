@@ -29,6 +29,11 @@
             </div>
           </div>
           <p><%= simple_format(@stamp_rally.description) %></p>
+          <% if @stamp_rally.tags.present? %>
+            <div class="mb-3">
+              <%= render 'tags', stamp_rally: @stamp_rally %>
+            </div>
+          <% end %>
           <% @stamp_rally.stamps.each_with_index do |stamp, index| %>
             <div class="d-flex align-items-center justify-content-between mb-2">
               <h5 class="flex-grow-1 mb-0"><%= "#{Stamp.human_attribute_name(:name)} : #{stamp.name}" %></h5>

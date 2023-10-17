@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       stamp_rally: 'スタンプラリー'
       stamp: 'スタンプ'
+      tag: 'タグ'
     attributes:
       user:
         name: 'ユーザー名'
@@ -14,6 +15,7 @@ ja:
       stamp_rally:
         title: 'タイトル'
         description: '説明'
+        tag_names: 'タグ'
         image: 'イメージ画像'
         visibility: '公開範囲設定'
       stamps:

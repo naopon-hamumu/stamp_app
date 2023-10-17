@@ -1,4 +1,5 @@
 class StampRalliesController < ApplicationController
+  include TagCreation
   before_action :set_stamp_rally, only: %i[edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
@@ -30,6 +31,7 @@ class StampRalliesController < ApplicationController
   def create
     @stamp_rally = current_user.stamp_rallies.build(stamp_rally_params)
     if @stamp_rally.save
+      process_tags(@stamp_rally)
       redirect_to @stamp_rally, success: t('defaults.message.created', item: StampRally.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: StampRally.model_name.human)
@@ -39,6 +41,7 @@ class StampRalliesController < ApplicationController
 
   def update
     if @stamp_rally.update(stamp_rally_params)
+      process_tags(@stamp_rally)
       redirect_to @stamp_rally, success: t('defaults.message.updated', item: StampRally.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: StampRally.model_name.human)
