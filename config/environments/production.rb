@@ -91,14 +91,25 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Default url for mailer
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # メール送信失敗時のエラーを発生させる
+  config.action_mailer.raise_delivery_errors = true
+  # メール送信にSMTPを使用する
   config.action_mailer.delivery_method = :smtp
+  # SMPTの詳細設定
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'stamp-bon-voyage.com',
-    user_name:            ENV['GMAIL'],
-    password:             ENV['GMAIL_PASSWORD'],
-    authentication:       'plain',
+    address: 'smtp.gmail.com',
+    port: 587,
+    # HELOコマンドで使用するドメイン、たぶん無くてもok
+    domain: 'smtp.gmail.com',
+    # Gmailのメールアドレス
+    user_name: ENV['GMAIL'],
+    # Googleのアプリパスワード
+    password: ENV['GMAIL_PASSWORD'],
+    # メールサーバーの認証の種類
+    authentication: 'plain',
+    # STARTTLSを自動検出して有効化
     enable_starttls_auto: true
   }
 end
