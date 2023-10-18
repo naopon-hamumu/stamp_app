@@ -28,6 +28,15 @@ ja:
         title: 'ユーザー登録'
       edit:
         title: 'ユーザー編集'
+    passwords:
+      new:
+        title: 'パスワード再設定'
+        send_password_reset_link: 'パスワード再設定用リンクを送信'
+      edit:
+        title: '新規パスワード設定'
+        new_password: '新規パスワード'
+        confirm_new_password: '新規パスワード確認'
+        change_my_password: 'パスワード変更'
   stamp_rallies:
     index:
       title: 'スタンプラリー'

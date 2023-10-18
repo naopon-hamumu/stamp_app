@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   get 'participants/create'
   root 'static_pages#top'
   get 'site_policy', to: 'static_pages#site_policy'
