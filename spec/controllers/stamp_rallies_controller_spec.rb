@@ -19,6 +19,14 @@ RSpec.describe StampRalliesController, type: :controller do
     it { expect(response).to be_successful }
   end
 
+  shared_examples_for 'adds a stamp rally' do
+    it 'adds a stamp rally' do
+      expect {
+        post :create, params: { stamp_rally: stamp_rally_params }
+      }.to change(user.stamp_rallies, :count).by(1)
+    end
+  end
+
   shared_examples_for 'does not create a stamp rally' do
     it 'does not create a stamp rally' do
       expect {
@@ -36,6 +44,13 @@ RSpec.describe StampRalliesController, type: :controller do
           expect {
             post :create, params: { stamp_rally: stamp_rally_params }
           }.to change(user.stamp_rallies, :count).by(1)
+        end
+
+        %i[public_open with_image with_tag].each do |trait|
+          context "when #{trait}" do
+            let(:stamp_rally_params) { FactoryBot.attributes_for(:stamp_rally, trait) }
+            it_behaves_like 'adds a stamp rally'
+          end
         end
       end
 

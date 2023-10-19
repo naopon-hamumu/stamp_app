@@ -14,6 +14,12 @@ FactoryBot.define do
         "#{Rails.root}/spec/files/fuma.jpeg", "image/jpeg") }
     end
 
+    trait :with_tag do
+      after(:create) do |stamp_rally, _evaluator|
+        stamp_rally.tags << FactoryBot.create(:tag)
+      end
+    end
+
     trait :without_title do
       title { nil }
     end
