@@ -6,7 +6,7 @@ RSpec.describe "Stamps", type: :request do
 
     it 'renders the index template' do
       sign_in user
-      get '/stamps'
+      get stamps_path
       aggregate_failures do
         expect(response).to have_http_status(:success)
         expect(response).to render_template(:index)
