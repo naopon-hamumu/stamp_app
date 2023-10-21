@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :stamp do
+    association :stamp_rally
     sequence(:name) { |n| "Stamp #{n}" }
     sticker { Rack::Test::UploadedFile.new( \
       "#{Rails.root}/spec/files/fuma.jpeg", "image/jpeg") }

@@ -60,7 +60,6 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec'
   gem 'faker'
-  gem 'rspec-rails'
 end
 
 group :development do
@@ -80,6 +79,12 @@ group :test do
   gem 'rails-controller-testing', '1.0.5'
   gem 'selenium-webdriver', '4.2.0'
   gem 'webdrivers', '5.0.0'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 gem 'rails-i18n', '~> 7.0'
