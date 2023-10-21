@@ -16,11 +16,17 @@ const MapShow = {
             position: position,
             map: map
         });
+
+        // マーカーをクリックしたときにGoogle Mapsにリダイレクトするイベントリスナーを追加
+        marker.addListener('click', function() {
+            window.location.href = `https://www.google.com/maps/?q=${lat},${lng}`;
+        });
+
       } else {
         console.error("Element with ID:", elementId, "not found.");
       }
   }
-}
+};
 
 function initializeMaps() {
   if (document.querySelector('.stamp-rally-show-page')) {
