@@ -12,17 +12,19 @@
         <%= t '.home' %>
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" id="own-tab" data-bs-toggle="tab"
-        href="#own" role="tab" aria-controls="own" aria-selected="false">
-        <%= t '.own' %>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="participate-tab" data-bs-toggle="tab"
-        href="#participate" role="tab" aria-controls="participate" aria-selected="false">
-        <%= t '.participate' %>
-      </a>
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" id="own-tab" data-bs-toggle="tab"
+          href="#own" role="tab" aria-controls="own" aria-selected="false">
+          <%= t '.own' %>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="participate-tab" data-bs-toggle="tab"
+          href="#participate" role="tab" aria-controls="participate" aria-selected="false">
+          <%= t '.participate' %>
+        </a>
+      <% end %>
     </li>
   </ul>
   <div class="tab-content mt-3" id="myTabContent">

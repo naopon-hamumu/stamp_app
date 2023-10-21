@@ -7,6 +7,9 @@
         <%= current_user.name %>
       </h5>
         <%= link_to t('defaults.edit'), edit_user_registration_path(current_user) %>
+        <%= link_to t('defaults.logout'), destroy_user_session_path, 
+                    data: { 'turbo-method': :delete },
+                    class: 'btn btn-info' %>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
   </div>
   <div class="offcanvas-body">
@@ -23,9 +26,7 @@
                     class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to t('defaults.logout'), destroy_user_session_path, 
-                    data: { "turbo-method": :delete },
-                    class: "nav-link active" %>
+        <hr>
       </li>
       <li class="nav-item">
         <%= link_to t('static_pages.privacy_policy.title'), privacy_policy_path,

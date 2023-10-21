@@ -1,5 +1,5 @@
 function setBackgroundImage() {
-    var backgroundImageUrl = "/assets/background.jpg"; // 画像のパスを指定
+    var backgroundImageUrl = "/assets/background.webp"; // 画像のパスを指定
 
     // 背景画像を設定
     document.body.style.backgroundImage = 'url("' + backgroundImageUrl + '")'; // 画像のパスを指定
