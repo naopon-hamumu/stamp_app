@@ -29,7 +29,7 @@ class StampRalliesController < ApplicationController
                                         @recommend_tag,
                                         params)
                                         .includes(:user, :tags, :stamps)
-      end
+    end
   end
 
   def show
