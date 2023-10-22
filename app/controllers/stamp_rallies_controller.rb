@@ -1,5 +1,6 @@
 class StampRalliesController < ApplicationController
   include TagCreation
+  include Recommend
   before_action :set_stamp_rally, only: %i[edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
@@ -14,14 +15,21 @@ class StampRalliesController < ApplicationController
     own_rallies = current_user.stamp_rallies.includes(:stamps)
                               .order(updated_at: :desc)
     @own_stamp_rallies = @q.result(distinct: true).merge(own_rallies)
-                           .page(params[:own_page])
 
     return unless current_user.participants.present?
 
     participate_rallies = current_user.participate_stamp_rallies
                                       .order(created_at: :desc)
-    @participate_stamp_rallies = @q.result(distinct: true).merge(participate_rallies)
-                                   .page(params[:participate_page])
+    @participate_stamp_rallies = @q.result(distinct: true)
+                                   .merge(participate_rallies)
+
+    if @recommend_tag = Recommend.recommend_tag(current_user)
+      @recommend_stamp_rallies = Recommend.recommend_stamp_rallies(
+                                        current_user,
+                                        @recommend_tag,
+                                        params)
+                                        .includes(:user, :tags, :stamps)
+      end
   end
 
   def show

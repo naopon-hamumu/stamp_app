@@ -3,9 +3,14 @@
     <div class="row">
       <% if stamp_rallies.present? %>
         <%= render stamp_rallies %>
-        <div class="col-12 d-flex justify-content-center">
-          <%= paginate stamp_rallies, theme: 'bootstrap-5', param_name: page_param %>
-        </div>
+        <% if page_param == :page %>
+          <div class="col-12 d-flex justify-content-center">
+            <%= paginate stamp_rallies, theme: 'bootstrap-5',
+                param_name: page_param,
+                params: request.query_parameters
+                               .merge(current_tab: page_param) %>
+          </div>
+        <% end %>
       <% else %>
         <h3 class="text-center"><%= t 'defaults.message.not_present' %></h3>
       <% end %>
