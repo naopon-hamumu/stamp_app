@@ -22,14 +22,18 @@ module Recommend
                 .sample
   end
 
-  def self.recommend_stamp_rallies(user_id, recommend_tag, params)
+  def self.recommend_stamp_rallies(user, recommend_tag, params) # user_idをuserに変更
     tag = Tag.find_by(name: recommend_tag)
-    
-    stamp_rallies = if tag
-      tag.stamp_rallies.public_open.where
-         .not(user_id: user_id)
+
+    if tag
+      participated_stamp_rally_ids = user.participate_stamp_rallies.ids # 参加しているスタンプラリーのIDを取得
+      tag.stamp_rallies
+         .public_open
+         .where.not(id: participated_stamp_rally_ids) # 参加しているスタンプラリーを除外
          .order(updated_at: :desc)
          .limit(DEFAULT_PAGE_ITEM_COUNT)
+    else
+      [] # タグが見つからない場合、空の配列を返します
     end
   end
 end
