@@ -75,11 +75,10 @@ README〜ER図作成：07/16 〆切
 - JavaScript
 - Bootstrap
 - heroku
-- Google Maps Geolocation API
-- Google Maps Geocording API
-- Google Places API
-- GCP Recommendations AI（MVP後）
-- Sweetalert2
+- Google Maps Geolocation API：スタンプ獲得ボタン押下時に、どの地点にいるか判定に使用
+- Google Maps Geocording API：住所を緯度経度に変換するために使用
+- Google Places API：場所検索に使用
+- Sweetalert2：スタンプ獲得判定時の待ち時間の表示のために使用
 - importmap
 - AWS S3（画像保存）
 - パスワードリセット機能
@@ -94,10 +93,10 @@ https://www.figma.com/file/nb2HTfN6mYQ9h3xUFlQayB/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 ## ER図
 https://drive.google.com/file/d/1Xvk63R1wjcOWkJg6fzSLOHmgwmkRANpK/view?usp=sharing
 
-[![Image from Gyazo](https://i.gyazo.com/4eb478485288afdb6666f93d30defd9c.png)](https://gyazo.com/4eb478485288afdb6666f93d30defd9c)
+[![Image from Gyazo](https://i.gyazo.com/f74687d696db304e416dd4315b07828c.png)](https://gyazo.com/f74687d696db304e416dd4315b07828c)
 
 ### 概説
-- Autenticates
+- SnsCredentials
   - provider：サービスのプロバイダー名
   - uid
 - StampRallies
